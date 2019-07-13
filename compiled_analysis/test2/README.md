@@ -1,4 +1,4 @@
-test2
+test
 ================
 Denis Maciel
 7/13/2019
@@ -29,7 +29,7 @@ summary(cars)
 
 You can also embed plots, for example:
 
-![](/Users/denis/Dev/causal-forest-ohie/compiled_analysis/test2/README_files/figure-gfm/pressure-1.png)<!-- -->
+![](README_files/figure-gfm/pressure-1.png)<!-- -->
 
 Note that the `echo = FALSE` parameter was added to the code chunk to
 prevent printing of the R code that generated the plot.

@@ -2,7 +2,7 @@
 title: "check_randomization"
 author: "Denis Maciel"
 date: "7/12/2019"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}

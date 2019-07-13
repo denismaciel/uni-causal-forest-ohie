@@ -1,0 +1,121 @@
+---
+title: "check_randomization"
+author: "Denis Maciel"
+date: "7/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+read_stata_dataset <- function(file_path) {
+  file_path %>% 
+    here::here() %>% 
+    haven::read_dta(file_path) %>% 
+    haven::as_factor()
+}
+
+descriptive <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_descriptive_vars.dta")
+state_programs <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_stateprograms_vars.dta")
+survey12 <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_survey12m_vars.dta")
+emergency <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_ed_vars.dta")
+```
+
+We only got data on hospital vistis about 24646 participants.
+
+```{r}
+nrow(descriptive); nrow(state_programs); nrow(survey12); nrow(emergency)
+```
+
+```{r}
+descriptive_reduced <- descriptive %>% 
+  filter(person_id %in% emergency$person_id)
+
+descriptive_reduced
+```
+
+```{r}
+descriptive_reduced %>% 
+  group_by(treatment) %>% 
+  summarise(yob = mean(birthyear_list)) %>% 
+  spread(treatment, yob) %>% 
+  mutate(diff = `Not selected` - Selected)
+
+descriptive %>% 
+  group_by(treatment) %>% 
+  summarise(yob = mean(birthyear_list)) %>% 
+  spread(treatment, yob) %>% 
+  mutate(diff = `Not selected` - Selected)
+```
+
+```{r}
+descriptive_reduced %>% 
+  group_by(treatment) %>% 
+  summarise(pp_female = sum(female_list == "1: Female", na.rm = TRUE)/n())
+```
+
+```{r}
+descriptive_reduced %>% 
+  group_by(treatment) %>% 
+  summarise(gave_phonenumber = 1 - sum(have_phone_list == "Did NOT give phone number", na.rm = TRUE) / n())
+```
+
+```{r}
+library(grf)
+
+eme_visits <- emergency %>% 
+  # select(person_id, num_visit_cens_ed) %>% 
+  right_join(descriptive_reduced %>% 
+               select(person_id, treatment)) %>% 
+  filter(!is.na(num_visit_cens_ed)) %>% 
+  mutate(treatment = treatment == "Selected") %>% 
+  select(-person_id)
+
+eme_visits %>%
+  select(-treatment, -num_visit_cens_ed, -sample_ed) %>%   
+  select_if(function(x) sum(is.na(x)) == 0) %>% 
+  select_if(is.numeric) %>% {
+    X <<- as.matrix(.)
+    col_names <<- colnames(.)
+  }
+
+# N_TRAIN <- 8000
+N_TRAIN <- round(nrow(X) * 0.6)
+
+indices <- sample(1:nrow(X), size = N_TRAIN, replace = FALSE)
+
+mod_causal_forest <- grf::causal_forest(X = X[indices, ],
+                                        Y = as.vector(eme_visits$num_visit_cens_ed[indices]),
+                                        W = eme_visits$treatment[indices], 
+                                        num.trees = 200)
+
+```
+
+```{r}
+mod_causal_forest %>% 
+  variable_importance() %>% 
+  mutate()
+
+mod_causal_forest %>%
+  variable_importance() %>%
+  as.data.frame() %>%
+  mutate(variable = col_names) %>% 
+  arrange(desc(V1))
+```
+
+```{r}
+predictions <- predict(mod_causal_forest, newdata = X[-indices, ])
+predictions <- predictions[, 1]
+
+eme_visits_test <- eme_visits %>% filter(!row_number() %in% indices)
+eme_visits_test$predictions <- predictions
+
+eme_visits_test %>% 
+  ggplot(aes(num_visit_cens_ed, predictions)) +
+  geom_point()
+```
+

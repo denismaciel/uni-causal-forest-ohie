@@ -1,0 +1,248 @@
+---
+title: "Exploratory Data Analysis"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(here)
+library(assertthat)
+```
+
+```{r}
+read_stata_dataset <- function(file_path) {
+  file_path %>% 
+    here::here() %>% 
+    haven::read_dta(file_path) %>% 
+    haven::as_factor()
+}
+
+descriptive <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_descriptive_vars.dta")
+state_programs <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_stateprograms_vars.dta")
+survey12 <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_survey12m_vars.dta")
+emergency <- read_stata_dataset("data/OHIE_Public_Use_Files/OHIE_Data/oregonhie_ed_vars.dta")
+```
+
+## Average Treatment Effect of Being Picked at the Lottery
+
+Our variable of interest here will be "Emergency Rooms visits" (`num_visit_cens_ed` in `emergency` dataset).
+
+```{r}
+eme_visits <- emergency %>% 
+  select(person_id, num_visit_cens_ed) %>% 
+  left_join(descriptive %>% 
+              select(person_id, treatment)) %>% 
+  filter(!is.na(num_visit_cens_ed))
+```
+
+Lottery average number of emergency visit
+
+```{r}
+eme_visits %>%
+  group_by(treatment) %>% 
+  summarise(average_visit = mean(num_visit_cens_ed, na.rm = TRUE))
+```
+
+Lottery any visit
+
+```{r}
+eme_visits %>% 
+  mutate(has_any_visit = num_visit_cens_ed >= 1) %>% 
+  group_by(treatment) %>% 
+  summarise(no_visit= sum(has_any_visit == FALSE) / n(),
+            has_visit = sum(has_any_visit == TRUE) / n())
+```
+
+### With Medicaid
+
+```{r}
+eme_visits_medicaid <- eme_visits <- emergency %>% 
+  select(person_id, num_visit_cens_ed) %>% 
+  left_join(state_programs %>% 
+              select(person_id, medicaid = ohp_all_ever_firstn_30sep2009)) %>% 
+  filter(!is.na(num_visit_cens_ed))
+```
+
+Medicaid average number of emergency visits
+
+```{r}
+eme_visits_medicaid %>%
+  group_by(medicaid) %>% 
+  summarise(average_visit = mean(num_visit_cens_ed, na.rm = TRUE))
+```
+
+Medicaid any visit
+
+```{r}
+eme_visits_medicaid %>% 
+  mutate(has_any_visit = num_visit_cens_ed >= 1) %>% 
+  group_by(medicaid) %>% 
+  summarise(no_visit= sum(has_any_visit == FALSE) / n(),
+            has_visit = sum(has_any_visit == TRUE) / n())
+```
+
+Medicaid any visit With SDE
+
+```{r}
+medicaid_any_visit <- eme_visits_medicaid %>% 
+  mutate(has_any_visit = num_visit_cens_ed >= 1) %>% 
+  group_by(medicaid) %>% 
+  summarise(no_visit= sum(has_any_visit == FALSE) / n(),
+            has_visit = sum(has_any_visit == TRUE) / n(),
+            var = var(has_any_visit), 
+            n = n()) %>% 
+  mutate(std_err = var/(n-1))
+
+late_df <- medicaid_any_visit %>% 
+  select(medicaid, has_visit) %>% 
+  spread(medicaid, has_visit) %>% 
+  mutate(late = Enrolled - `NOT enrolled`) %>% 
+  select(late)
+
+std_err_late_df <- medicaid_any_visit %>% 
+  ungroup() %>% 
+  summarise(std_err_late = sqrt(sum(std_err)))
+
+late_df <- bind_cols(late_df, std_err_late_df) %>% 
+    mutate(lower_bound = late - std_err_late, 
+           upper_bound = late + std_err_late)
+
+late_df %>% 
+  ggplot(aes(y = late, x = "late")) +
+  geom_point() + 
+  geom_errorbar(aes(ymin = lower_bound, ymax = upper_bound)) +
+  expand_limits(y = c(0, .2))
+```
+
+
+## ---
+
+Assuming independence between respondents, the standard errors of ATE are given by:
+
+$$
+se(\bar{y}_1 - \bar{y}_0) = \sqrt{\frac{1}{n_0}var(y_i|d_i = 0) + \frac{1}{n_1}var(y_i|d_i = 1)}
+$$
+
+## Heterogeneity here?
+
+## Average Treatment Effect of Medicaid enrollment
+
+`ohp_all_ever_firstn_30sep2009`: This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the lotteried program, OHP Standard) between the earliest notification date in the sample (10 March 2008) and 30 September 2009. In the analysis of the 12-month mail survey data in Finkelstein et al (2012), this variable was used as the definition of insurance coverage in estimating the effect of Medicaid. In the analysis in Taubman et al (201XX), this variable was used as the definition of insurance coverage in estimating the effect of Medicaid.
+
+```{r}
+medicaid <- state_programs %>% 
+  select(person_id, ohp_all_ever_firstn_30sep2009)
+```
+
+```{r}
+emergency %>% 
+  count(num_visit_pre_cens_ed, num_visit_cens_ed) %>% 
+  filter() %>% 
+  ggplot(aes(num_visit_pre_cens_ed, num_visit_cens_ed, fill = log(n))) +
+  geom_tile()
+```
+
+Local Average Treatment Effect per Previous Visit
+
+```{r}
+per_n_visits <- emergency %>% 
+  left_join(descriptive) %>% 
+  mutate(n_visits_pre = case_when(
+    num_visit_pre_cens_ed == 0 ~ "0",
+    num_visit_pre_cens_ed == 1 ~ "1",
+    num_visit_pre_cens_ed == 2 ~ "2",
+    num_visit_pre_cens_ed == 3 ~ "3",
+    num_visit_pre_cens_ed == 4 ~ "4",
+    num_visit_pre_cens_ed >= 5 ~ ">5",
+    is.na(num_visit_pre_cens_ed) ~ NA_character_,
+    TRUE ~ "Else"
+  )) %>% 
+  mutate(n_visits_pre = forcats::fct_relevel(n_visits_pre, "0", "1", "2", "3", "4", ">5"))
+
+# Make sure code logic is covering all cases
+# assert_that(all(per_n_visits$n_visits_pre != "Else"))
+
+# Now remove NAs
+per_n_visits <- per_n_visits %>% 
+  filter(!is.na(n_visits_pre))
+
+per_n_visits <- per_n_visits %>% 
+  group_by(n_visits_pre,
+           treatment) %>% 
+  summarise(avg_visit = mean(num_visit_cens_ed, na.rm = TRUE), 
+            n = n()) %>% 
+  group_by(n_visits_pre) %>% 
+  mutate(total_n = sum(n),
+         pp = n / total_n) %>% 
+  mutate(pp_treated = pp[treatment == "Selected"])
+
+per_n_visits
+```
+
+```{r}
+per_n_visits %>% 
+  select(-n, -pp) %>% 
+  spread(key = treatment, value = avg_visit) %>% 
+  mutate(late = Selected - `Not selected`) %>% 
+  ggplot(aes(n_visits_pre, late)) +
+  geom_col()
+```
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+```{r}
+P <- descriptive %>% 
+  select(person_id, household_id, numhh_list)
+
+P$medicaid <- state_programs$ohp_all_ever_firstn_30sep2009 == 'Enrolled'
+P$selected <- descriptive$treatment == "Selected"
+```
+
+ATE. Still need to come up with `P`.
+
+Being selected in the Medicaid lottery leads to a 6% increase in probability of visiting the doctor in the next year.
+
+```{r}
+P %>% 
+  group_by(selected) %>%
+  summarise(doc_any = mean(doc_any_12m)) %>%
+  spread(selected, doc_any) %>%
+  mutate(diff = `1` - `0`)
+```
+
+Todos:
+
+1. Not everyone who was picked in the lottery ended up registering for Medicaid. Plot `selected` vs `medicaid`. Some might ended up not enrolling, some might be found ineligible.
+
+
+### Imperfect Randomization
+
+Respondents are able to apply for all members of household. People in larger households are more likely to be eligible to Medicaid.
+
+```{r}
+P %>% 
+  count(selected, numhh_list) %>% 
+  spread(selected, n) %>% 
+  mutate(pp_selected = `1` / (`0` + `1`))
+```
+
+
+### Dependence between units
+
+Members of same household have correlated behaviour.
+
+```{r}
+# P %>% 
+#   filter(as.numeric(as.character(numhh_list)) > 1) %>% 
+#   arrange(household_id)
+```
+
+

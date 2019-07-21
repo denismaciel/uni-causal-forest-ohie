@@ -1,0 +1,39 @@
+Code,Meaning
+age_2009,Age in 2009
+any_abdo_pre_ed,"Any ED visit for abdominal pain, pre-randomization"
+any_acsc_pre_ed,"Any ambulatory case sensitive ED visit, pre-randomization"
+any_back_pre_ed,"Any ED visit for back pain, pre-randomization"
+any_chron_pre_ed,"Any ED visit for chronic condition, pre-randomization"
+any_depres_pre_ed,"Any ED visit for mood disorders, pre-randomization"
+any_head_pre_ed,"Any ED visit for headache, pre-randomization"
+any_heart_pre_ed,"Any ED visit for chest pain, pre-randomization"
+any_hiun_pre_ed,"Any ED visit to a high uninsured volume hospital, pre-randomization"
+any_hosp_pre_ed,"Any ED visit resulting in a hospitalization, pre-randomization"
+any_inj_pre_ed,"Any ED visit for injury, pre-randomization"
+any_loun_pre_ed,"Any ED visit to a low uninsured volume hospital, pre-randomization"
+any_off_pre_ed,"Any weekend or nighttime ED visits, prerandomization"
+any_on_pre_ed,"Any weekday daytime ED visit, pre-randomization"
+any_out_pre_ed,"Any Outpatient ED visit, pre-randomization"
+any_psysub_pre_ed,"Any ED visit for psych conditions/substance abuse, pre-randomization"
+any_skin_pre_ed,"Any ED visit for skin conditions, pre-randomization"
+any_visit_pre_ed,"Any ED visit, pre-randomization"
+charg_tot_pre_ed,"Sum of total charges, pre-randomization"
+ed_charg_tot_pre_ed,"Sum of total ED charges, pre-randomization"
+english_list,Individual requested english-language materials: lottery list data
+female_list,Female: lottery list data
+first_day_list,Signed up for lottery list on first day: lottery list data
+have_phone_list,Gave a phone number on lottery sign up: lottery list data
+last_day_list,Signed up for lottery list on last day: lottery list data
+num_edcnnp_pre_ed,"Number of emergent, non-preventable ED visits, pre-randomization"
+num_edcnpa_pre_ed,"Number of emergent, preventable ED visits, pre-randomization"
+num_epct_pre_ed,"Number of primary care treatable ED visits, pre-randomization"
+num_ne_pre_ed,"Number of non-emergent ED visits, pre-randomization(see codebook)"
+num_unclas_pre_ed,"Number of of unclassified ED visits, pre-randomization (see codebook)"
+num_visit_cens_ed,Number of ED visits in the study period (Censored)
+numhh_list,Number of people in household on lottery list
+pobox_list,Gave a PO Box as an address: lottery list data
+ret_mode_0m,Method of survey return -- 0m
+sample_0m,Initial mail survey sample (individual was mailed an initial survey)
+self_list,Individual signed him or herself up for the lottery list
+surv_lang_0m,Survey language -- 0m
+week_list,Week of lottery sign up: lottery list data

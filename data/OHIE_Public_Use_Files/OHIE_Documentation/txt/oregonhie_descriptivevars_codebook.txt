@@ -1,0 +1,229 @@
+                Codebook: Oregon Health Insurance Experiment, Descriptive Variables
+This codebook lists all of the publicly available descriptive variables from the Oregon Health Insurance
+Experiment (for data sources, please see the User Guide). The codebook has two sections. In the first section,
+variable name, label, and number of non-missing values are given. Where applicable, the text of the survey
+question and/or notes on variable construction are given immediately following the variable. In the second
+section, variable name, label, and any relevant survey question text are given along with descriptive statistics.
+   #       Variable Name                                    Variable Label                            Non-missing
+   1   person_id               Scrambled individual identifier                                            74922
+   2   household_id            Scrambled household identifier                                             74922
+   3   treatment               Selected in the lottery                                                    74922
+                               Lottery draw for those selected in lottery: provided by state
+   4   draw_treat                                                                                         29834
+                               government
+                               Lottery draw for those selected, 'matched' draw for those not (see
+  5    draw_lottery                                                                                       74922
+                               User Guide)
+  6    applied_app             Submitted an application to OHP                                            29799
+   7   approved_app            Application approved                                                       29799
+   8   dt_notify_lottery       Lottery draw date for treatment and matched controls                       74922
+                               Date insurance coverage begins, applied retroactively after
+   9   dt_retro_coverage                                                                                  74922
+                               application approval
+  10 dt_app_decision           Date of application decision                                               18101
+                               Death post notification date (2008 and 2009): Oregon Vital
+  11 postn_death                                                                                          74922
+                               Statistics data
+  12 numhh_list                Number of people in household on lottery list                              74922
+
+13 birthyear_list  Birth year: lottery list data                                      74922
+14 have_phone_list Gave a phone number on lottery sign up: lottery list data          74922
+15 english_list    Individual requested english-language materials: lottery list data 74922
+16 female_list     Female: lottery list data                                          74921
+17 first_day_list  Signed up for lottery list on first day: lottery list data         74922
+18 last_day_list   Signed up for lottery list on last day: lottery list data          74922
+19 pobox_list      Gave a PO Box as an address: lottery list data                     74922
+20 self_list       Individual signed him or herself up for the lottery list           74922
+21 week_list       Week of lottery sign up: lottery list data                         74922
+22 zip_msa_list    Zip code from lottery list is a metropolitan statistical area      74920
+
+File : oregonhie_descriptive_vars
+# person_id:         Scrambled individual identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 1-74922] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=37461.5 /-] [StdDev=21628.263 /-]
+# household_id:            Scrambled household identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 100001-174922] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=140311.606 /-] [StdDev=21441.221 /-]
+# treatment:         Selected in the lottery
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Not selected                                                                                  45088                                                 60.2%
+ 1                       Selected                                                                                      29834                                         39.8%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# draw_treat:           Lottery draw for those selected in lottery: provided by state government
+Information                             [Type= discrete] [Format=numeric] [Range= 1-8] [Missing=*]
+Statistics [NW/ W]                      [Valid=29834 /-] [Invalid=45088 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                       Draw 1: selected in lottery 03/05/2008                                                         3176                                    10.6%
+ 2                       Draw 2: selected in lottery 03/27/2008                                                         3173                                    10.6%
+ 3                       Draw 3: selected in lottery 04/08/2008                                                         3182                                    10.7%
+ 4                       Draw 4: selected in lottery 05/01/2008                                                         3005                                  10.1%
+ 5                       Draw 5: selected in lottery 06/02/2008                                                         2936                                  9.8%
+ 6                       Draw 6: selected in lottery 07/01/2008                                                         5899                                                 19.8%
+ 7                       Draw 7: selected in lottery 08/01/2008                                                         5637                                               18.9%
+ 8                       Draw 8: selected in lottery 09/02/2008                                                         2826                                 9.5%
+ Sysmiss                                                                                                               45088
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# draw_lottery:            Lottery draw for those selected, 'matched' draw for those not (see User Guide)
+Information                             [Type= discrete] [Format=numeric] [Range= 1-8] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                       Lottery Draw 1                                                                                 7662                                   10.2%
+ 2                       Lottery Draw 2                                                                                 7685                                   10.3%
+ 3                       Lottery Draw 3                                                                                 7700                                   10.3%
+ 4                       Lottery Draw 4                                                                                 7519                                  10.0%
+ 5                       Lottery Draw 5                                                                                 7448                                  9.9%
+ 6                       Lottery Draw 6                                                                                14906                                                 19.9%
+ 7                       Lottery Draw 7                                                                                14599                                                19.5%
+ 8                       Lottery Draw 8                                                                                 7403                                  9.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# applied_app:            Submitted an application to OHP
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+                                                                                                    -9-
+
+File : oregonhie_descriptive_vars
+# applied_app:            Submitted an application to OHP
+Statistics [NW/ W]                      [Valid=29799 /-] [Invalid=45123 /-]
+ Value                   Label                                                                                         Cases                                 Percentage
+ 0                       Did NOT submit an application to OHP                                                          11676                                          39.2%
+ 1                       Submitted an Application to OHP                                                               18123                                                 60.8%
+ Sysmiss                                                                                                               45123
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# approved_app:              Application approved
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=29799 /-] [Invalid=45123 /-]
+ Value                   Label                                                                                         Cases                                 Percentage
+ 0                       No                                                                                            21101                                                 70.8%
+ 1                       Yes                                                                                            8698                                29.2%
+ Sysmiss                                                                                                               45123
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# dt_notify_lottery:              Lottery draw date for treatment and matched controls
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-]
+ Value                   Label                                                                                         Cases                                 Percentage
+ 2008-03-10                                                                                                             7662                                     10.2%
+ 2008-04-07                                                                                                             7685                                     10.3%
+ 2008-04-16                                                                                                             7700                                     10.3%
+ 2008-05-09                                                                                                             7519                                    10.0%
+ 2008-06-11                                                                                                             7448                                    9.9%
+ 2008-07-14                                                                                                            14906                                                 19.9%
+ 2008-08-12                                                                                                            14599                                                19.5%
+ 2008-09-11                                                                                                             7403                                    9.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# dt_retro_coverage:                Date insurance coverage begins, applied retroactively after application approval
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-]
+ Value                   Label                                                                                         Cases                                 Percentage
+ 2008-03-11                                                                                                             7662                                     10.2%
+ 2008-04-08                                                                                                             7685                                     10.3%
+ 2008-05-08                                                                                                             7700                                     10.3%
+ 2008-06-09                                                                                                             7519                                    10.0%
+ 2008-07-08                                                                                                             7448                                    9.9%
+ 2008-08-08                                                                                                            14906                                                 19.9%
+ 2008-09-08                                                                                                            14599                                                19.5%
+ 2008-10-08                                                                                                             7403                                    9.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# dt_app_decision:               Date of application decision
+Information                             [Type= discrete] [Format=character] [Missing=*]
+                                                                                                    - 10 -
+
+File : oregonhie_descriptive_vars
+# dt_app_decision:               Date of application decision
+Statistics [NW/ W]                      [Valid=18101 /-]
+# postn_death:            Death post notification date (2008 and 2009): Oregon Vital Statistics data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Alive                                                                                         74326                                                    99.2%
+ 1                       Dead                                                                                            596           0.8%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# numhh_list:           Number of people in household on lottery list
+Information                             [Type= discrete] [Format=numeric] [Range= 1-3] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 1                       signed self up                                                                                57528                                                    76.8%
+ 2                       signed self up + 1 additional person                                                          17236                             23.0%
+ 3                       signed self up + 2 additional people                                                            158           0.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# birthyear_list:           Birth year: lottery list data
+Information                             [Type= continuous] [Format=numeric] [Range= 1945-1988] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=1968.077 /-] [StdDev=12.203 /-]
+# have_phone_list:               Gave a phone number on lottery sign up: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Did NOT give phone number                                                                     10174                    13.6%
+ 1                       Gave Phone Number                                                                             64748                                                    86.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# english_list:         Individual requested english-language materials: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Requested materials in language other than english                                             6440                8.6%
+ 1                       Requested English materials                                                                   68482                                                    91.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# female_list:         Female: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74921 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       0: Male                                                                                       33673                                              44.9%
+ 1                       1: Female                                                                                     41248                                                    55.1%
+ Sysmiss                                                                                                                   1
+                                                                                                    - 11 -
+
+File : oregonhie_descriptive_vars
+# female_list:         Female: lottery list data
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# first_day_list:          Signed up for lottery list on first day: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Did NOT sign up for lottery list on first day                                                 67900                                              90.6%
+ 1                       Signed up for lottery list on first day                                                        7022                 9.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# last_day_list:          Signed up for lottery list on last day: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Did NOT sign up for lottery list on last day                                                  71938                                              96.0%
+ 1                       Signed up for lottery list on last day                                                         2984             4.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# pobox_list:        Gave a PO Box as an address: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       0: Not POBOX                                                                                  66164                                              88.3%
+ 1                       1: POBOX                                                                                       8758                  11.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# self_list:     Individual signed him or herself up for the lottery list
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Did NOT sign self up                                                                           8712                  11.6%
+ 1                       Signed self up                                                                                66210                                              88.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# week_list:        Week of lottery sign up: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 1-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 1                       Week 1                                                                                        25646                                              34.2%
+ 2                       Week 2                                                                                        14830                                        19.8%
+ 3                       Week 3                                                                                        11920                                   15.9%
+ 4                       Week 4                                                                                         7803                             10.4%
+ 5                       Week 5                                                                                        11872                                   15.8%
+ 6                       Week 6                                                                                         2851                 3.8%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 12 -
+
+File : oregonhie_descriptive_vars
+# zip_msa_list:          Zip code from lottery list is a metropolitan statistical area
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74920 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       Zip code of residence NOT in a MSA                                                            17275                             23.1%
+ 1                       Zip code of residence in a MSA                                                                57645                                              76.9%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 13 -
+

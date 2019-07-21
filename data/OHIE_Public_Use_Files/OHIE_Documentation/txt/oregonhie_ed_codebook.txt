@@ -1,0 +1,1551 @@
+        Codebook: Oregon Health Insurance Experiment, Emergency Department Variables
+This codebook lists all of the publicly available emergency department variables from the Oregon Health
+Insurance Experiment (for data sources, please see the User Guide). The codebook has two sections. In the first
+section, variable name, label, and number of non-missing values are given. Where applicable, the text of the
+survey question and/or notes on variable construction are given immediately following the variable. In the second
+section, variable name, label, and any relevant survey question text are given along with descriptive statistics.
+  #          Variable Name                                     Variable Label                           Non-missing
+  1    person_id                   Scrambled individual identifier                                         24646
+  2    sample_ed                   Individual residing in a zip code included in the ED study              24646
+  3 any_visit_pre_ed               Any ED visit, pre-randomization                                         24646
+   This variable is equal to 1 if an individual had any ED visits between January 1, 2007 and March 9, 2008
+   (inclusive). It is otherwise equal to zero.
+  4 any_visit_ed                   Any ED visit in the study period                                        24646
+   This variable is equal to 1 if an individual had any ED visits between March 10, 2008 and September 30,
+   2009 (inclusive). It is otherwise equal to zero.
+  5 num_visit_pre_cens_ed Number of of ED visits, pre-randomization (Censored)                             24634
+   This variable is equal to the number of ED visits an individual had between March 10, 2008
+   and September 30, 2009 (inclusive). The variable is equal to zero if the individual had no emergency
+   department visits at all, or none within that time frame.
+   This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+   The public use variable was additionally censored to ensure de-identification (see User Guide for
+   explanation).
+  6 num_visit_cens_ed              Number of ED visits in the study period (Censored)                      24622
+   This variable is equal to the number of ED visits an individual had between March 10, 2008
+   and September 30, 2009 (inclusive). The variable is equal to zero if the individual had no emergency
+   department visits at all, or none within that time frame.
+   This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+   The public use variable was additionally censored to ensure de-identification (see User Guide for
+   explanation).
+  7 any_hosp_pre_ed                Any ED visit resulting in a hospitalization, pre-randomization          24646
+   This variable is equal to 1 if an individual had any ED visits between January 1, 2007 and March 9, 2008
+   (inclusive) that resulted in a hospitalization. It is otherwise equal to zero.
+
+ 8 any_hosp_ed                     Any ED visit resulting in a hospitalization in the study period           24646
+  This variable is equal to 1 if an individual had any ED visits between March 10, 2008 and September 30,
+  2009 (inclusive) that resulted in a hospitalization. It is otherwise equal to zero.
+                                   Number of ED visits resulting in a hospitalization, pre-
+ 9   num_hosp_pre_cens_ed                                                                                    24644
+                                   randomization (Censored)
+  This variable is equal to the number of ED visits an individual had between January 1, 2007
+  and March 9, 2008 (inclusive) that resulted in a hospitalization. The variable is equal to zero if the individual
+  had no such visits or no emergency department visits at all.
+  This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+  The public use variable was additionally censored to ensure de-identification (see User Guide for
+  explanation).
+                                   Number of ED visits resulting in a hospitalization in the study
+10 num_hosp_cens_ed                                                                                          24644
+                                   period (Censored
+  This variable is equal to the number of ED visits an individual had between March 10, 2008
+  and September 30, 2009 (inclusive) that resulted in a hospitalization. The variable is equal to zero if the
+  individual had no such visits or no emergency department visits at all.
+  This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+  The public use variable was additionally censored to ensure de-identification (see User Guide for
+  explanation).
+11 any_out_pre_ed                  Any Outpatient ED visit, pre-randomization                                24646
+  This variable is equal to 1 if an individual had any ED visits between January 1, 2007 and March 9, 2008
+  (inclusive) that did not result in a hospitalization.
+12 any_out_ed                      Any Outpatient ED visit in the study period                               24646
+  This variable is equal to 1 if an individual had any ED visits between March 10, 2008 and September 30,
+  2009 (inclusive) that did not result in a hospitalization. It is otherwise equal to zero.
+13 num_out_pre_cens_ed             Number of Outpatient ED visits, pre-randomization (Censored)              24634
+  This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+  2008 (inclusive) that did not result in a hospitalization. The variable is equal to zero if the individual had no
+  such visits or no emergency department visits at all.
+  This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+  The public use variable was additionally censored to ensure de-identification (see User Guide for
+  explanation).
+14 num_out_cens_ed                 Number of Outpatient ED visits in the study period (Censored)             24622
+  This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+  30, 2009 (inclusive) that did not result in a hospitalization. The variable is equal to zero if the individual had
+  no such visits or no emergency department visits at all.
+  This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+  The public use variable was additionally censored to ensure de-identification (see User Guide for
+  explanation).
+
+15 any_on_pre_ed                 Any weekday daytime ED visit, pre-randomization                         24646
+ This variable is equal to 1 if an individual had any ED visits between January 1, 2007 and March 9, 2008
+ (inclusive) during weekdays between 8AM and 7PM (inclusive). It is otherwise equal to zero.
+16 any_on_ed                     Any weekday daytime ED visit in the study period                        24646
+ This variable is equal to 1 if an individual had any ED visits between March 10, 2008 and September 30,
+ 2009 (inclusive) during weekdays between 8AM and 7PM (inclusive). It is otherwise equal to zero.
+                                 Number of weekday daytime ED visits, pre-randomization
+17 num_on_pre_cens_ed                                                                                    24637
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) during weekdays between 8AM and 7PM (inclusive). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution. The public use variable was
+ additionally censored to ensure de-identification (see User Guide for explanation).
+                                 Number of weekday daytime ED visits in the study period
+18 num_on_cens_ed                                                                                        24628
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) during weekdays between 8AM and 7PM (inclusive). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+19 any_off_pre_ed                Any weekend or nighttime ED visits, prerandomization                    24646
+ This variable is equal to 1 if an individual had any ED visits occurring after 8PM or before 7AM or at any
+ time on a Saturday or Sunday between January 1, 2007 and March 9, 2008 (inclusive).
+20 any_off_ed                    Any weekend or nighttime ED visit in the study period                   24646
+ This variable is equal to 1 if an individual had any ED visits occurring after 8PM or before 7AM or at any
+ time on a Saturday or Sunday between March 10, 2009 and September 30, 2009 (inclusive).
+                                 Number of weekend or nighttime ED visits, pre-randomization
+21 num_off_pre_cens_ed                                                                                   24635
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) that occurred after 8PM or before 7AM or at any time on a Saturday or Sunday. The variable
+ is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+                                  Number of weekend or nighttime ED visits in the study period
+22 num_off_cens_ed                                                                                        24635
+                                  (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) that occurred after 8PM or before 7AM or at any time on a Saturday or Sunday. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                  Number of emergent, non-preventable ED visits, pre-
+23 num_edcnnp_pre_ed                                                                                      24637
+                                  randomization (see codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was for a condition
+ requiring emergency care and the need for emergency care could not have been prevented. This variable is the
+ sum of these probabilities across all of an individual’s visits between January 1, 2007 and March 9, 2008
+ (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of his
+ or her visits were judged by the algorithm to have any probability of being a non-preventable emergency.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                  Number of emergent, non-preventable ED visits in the study
+24 num_edcnnp_ed                                                                                          24635
+                                  period (see codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was for a condition
+ requiring emergency care and the need for emergency care could not have been prevented. This variable is the
+ sum of these probabilities across all of an individual’s visits between March 10, 2008 and September 30,
+ 2009 (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of
+ his or her visits were judged by the algorithm to have any probability of being a non-preventable emergency.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                  Number of emergent, preventable ED visits, pre-randomization
+25 num_edcnpa_pre_ed                                                                                      24642
+                                  (see codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was for a condition
+ requiring emergency care that could have been provided by timely ambulatory care. This variable is the sum
+ of these probabilities across all of an individual’s visits between January 1, 2007 and March 9, 2008
+ (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of his
+ or her visits were judged by the algorithm to have any probability of being a non-preventable emergency.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+
+                                 Number of emergent, non-preventable ED visits in the study
+26 num_edcnpa_ed                                                                                         24643
+                                 period (see codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was for a condition
+ requiring emergency care that could have been provided by timely ambulatory care. This variable is the sum
+ of these probabilities across all of an individual’s visits between March 10, 2008 and September 30, 2009
+ (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of his
+ or her visits were judged by the algorithm to have any probability of being in this category.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                 Number of primary care treatable ED visits, pre-randomization
+27 num_epct_pre_ed                                                                                       24635
+                                 (see codebook)
+ We use an algorithm developed by Billings et al to assign each visit a probability that it was for a condition
+ requiring immediate care that could have been provided by in a primary care setting. This variable is the sum
+ of these probabilities across all of an individual’s visits between January 1, 2007 and March 9, 2008
+ (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of his
+ or her visits were judged by the algorithm to have any probability of being in this category.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                 Number of primary care treatable ED visits in the study period
+28 num_epct_ed                                                                                           24626
+                                 (see codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was for a condition
+ requiring immediate care that could have been provided by in a primary care setting. This variable is the sum
+ of these probabilities across all of an individual’s visits between March 10, 2008 and September 30, 2009
+ (inclusive). The variable is equal to zero if the individual had no emergency department visits or none of his
+ or her visits were judged by the algorithm to have any probability of being in this category.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                 Number of non-emergent ED visits, pre-randomization(see
+29 num_ne_pre_ed                                                                                         24638
+                                 codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was a condition not
+ requiring immediate care. This variable is the sum of these probabilities across all of an individual’s visits
+ between January 1, 2007 and March 9, 2008 (inclusive). The variable is equal to zero if the individual had no
+ emergency department visits or none of his or her visits were judged by the algorithm to have any probability
+ of being in this category.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+
+                                  Number of non-emergent ED visits in the study period (see
+30 num_ne_ed                                                                                              24634
+                                  codebook)
+ An algorithm developed by Billings et al was used to assign each visit a probability that it was a condition not
+ requiring immediate care. This variable is the sum of these probabilities across all of an individual’s visits
+ between March 10, 2008 and September 30, 2009 (inclusive). The variable is equal to zero if the individual
+ had no emergency department visits or none of his or her visits were judged by the algorithm to have any
+ probability of being in this category.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on any).
+                                  Number of of unclassified ED visits, pre-randomization (see
+31 num_unclas_pre_cens_ed                                                                                 24642
+                                  codebook) (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007
+ and March 9, 2008 (inclusive) that the algorithm developed by Billings et al. was unable to categorize. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                  Number of of unclassified ED visits in the study period (see
+32 num_unclas_cens_ed                                                                                     24641
+                                  codebook) (Censored
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) that the algorithm developed by Billings et al. was unable to categorize. The variable is
+ equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+33 any_acsc_pre_ed                Any ambulatory case sensitive ED visit, pre-randomization               24646
+ This variable is equal to 1 if the individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) for a condition that was identified as ambulatory care sensitive by the Prevention Quality
+ Indicators published by the Agency for Healthcare Research and Quality. It is otherwise equal to zero.
+34 any_acsc_ed                    Any ambulatory case sensitive ED visit in the study period              24646
+ This variable is equal to 1 if the individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) for a condition that was identified as ambulatory care sensitive by the Prevention Quality
+ Indicators published by the Agency for Healthcare Research and Quality. It is otherwise equal to zero.
+
+                                  Number of of unclassified ED visits, pre-randomization
+35 num_acsc_pre_cens_ed                                                                                 24644
+                                  (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and and March 9,
+ 2009 (inclusive) for a condition that was identified as ambulatory care sensitive by the Prevention Quality
+ Indicators published by the Agency for Healthcare Research and Quality. The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure deidentification (see User Guide for explanation).
+                                  Number of ambulatory case sensitive ED visits in the study period
+36 num_acsc_cens_ed                                                                                     24644
+                                  (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) for a condition that was identified as ambulatory care sensitive by the Prevention Quality
+ Indicators published by the Agency for Healthcare Research and Quality. The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+37 any_chron_pre_ed               Any ED visit for chronic condition, pre-randomization                 24646
+ This variable is equal to 1 if the individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) for a condition that was identified as chronic by the Chronic Conditions Indicator published by the
+ Agency for Healthcare Research and Quality. It is otherwise equal to zero.
+38 any_chron_ed                   Any ED visit for chronic condition, study period                      24646
+ This variable is equal to 1 if the individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) for a condition that was identified as chronic by the Chronic Conditions Indicator published by the
+ Agency for Healthcare Research and Quality. It is otherwise equal to zero.
+                                  Num. of ED visits for chronic conditions, pre-randomization
+39 num_chron_pre_cens_ed                                                                                24643
+                                  (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and
+ March 9, 2008 (inclusive) for a condition that was identified as chronic by the
+ Chronic Conditions Indicator published by the Agency for Healthcare Research and Quality.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+                                  Number of ED visits for chronic conditions, study period
+40 num_chron_cens_ed                                                                                       24642
+                                  (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) for a condition that was identified as chronic by the Chronic Conditions Indicator
+ published by the Agency for Healthcare Research and Quality. The variable is equal to zero if the individual
+ had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+41 any_inj_pre_ed                 Any ED visit for injury, pre-randomization                               24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to injury. Injuries were identified by the algorithm developed by Billings et al. It is otherwise
+ equal to zero.
+42 any_inj_ed                     Any ED visit for injury in the study period                              24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to injury. Injuries were identified by the algorithm developed by Billings et al. It is otherwise
+ equal to zero.
+43 num_inj_pre_cens_ed            Number of ED visits for injury, pre-randomization (Censored)             24639
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to injury. Injuries were identified by the algorithm developed by Billings et al. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+44 num_inj_cens_ed                Number of ED visits for injury in the study period (Censored)            24638
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to injury. Injuries were identified by the algorithm developed by Billings et al. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+45 any_skin_pre_ed                Any ED visit for skin conditions, pre-randomization                      24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2009
+ (inclusive) due to skin conditions. An admission was classified as due to a skin condition if the primary
+ diagnosis was identified as part of diagnosis group number 197 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+46 any_skin_ed                    Any ED visit for skin conditions in the study period                     24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to skin conditions. An admission was classified as due to a skin condition if the primary
+ diagnosis was identified as part of diagnosis group number 197 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+
+                                 Number of ED visits for skin conditions, pre-randomization
+47 num_skin_pre_cens_ed                                                                                 24646
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to skin conditions. An admission was classified as due to a skin condition if the primary
+ diagnosis was identified as part of diagnosis group number 197 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                 Number of ED visits for skin conditions in the study period
+48 num_skin_cens_ed                                                                                     24645
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to skin conditions. An admission was classified as due to a skin condition if the
+ primary diagnosis was identified as part of diagnosis group number 197 by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if
+ the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+49 any_abdo_pre_ed               Any ED visit for abdominal pain, pre-randomization                     24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to abdominal pain. An admission was classified as due to abdominal pain if the primary
+ diagnosis was identified as part of diagnosis group number 251 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+50 any_abdo_ed                   Any ED visit for abdominal pain the study period                       24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to abdominal pain. An admission was classified as due to abdominal pain if the primary
+ diagnosis was identified as part of diagnosis group number 251 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+                                 Number of ED visits for abdominal pain, pre-randomization
+51 num_abdo_pre_cens_ed                                                                                 24644
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2009 (inclusive) due to abdominal pain. An admission was classified as due to abdominal pain if the primary
+ diagnosis was identified as diagnosis was identified as part of diagnosis group number 251 by the Clinical
+ Classification Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is
+ equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+                                 Number of ED visits for abdominal pain the study period
+52 num_abdo_cens_ed                                                                                     24645
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to abdominal pain. An admission was classified as due to abdominal pain if the
+ primary diagnosis was identified as part of diagnosis group number 251 by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if
+ the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on any). The public
+ use variable was additionally censored to ensure de-identification (see User Guide for explanation).
+53 any_back_pre_ed               Any ED visit for back pain, pre-randomization                          24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to back pain. An admission was classified as due to back pain if the primary diagnosis was
+ identified as part of diagnosis group number 205 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+54 any_back_ed                   Any ED visit for back pain the study period                            24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to back pain. An admission was classified as due to back pain if the primary diagnosis was
+ identified as part of diagnosis group number 205 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+55 num_back_pre_cens_ed Number of ED visits for back pain, pre-randomization (Censored)                 24645
+ This variable is equal to the number of ED visits an individual had between 1 January, 2007 and 9 March
+ 2008 (inclusive) due to back pain. An admission was classified as due to back pain if the primary diagnosis
+ was identified as part of diagnosis group number 205 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the individual had no such
+ visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+56 num_back_cens_ed              Number of ED visits for back pain the study period (Censored)          24644
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to back pain. An admission was classified as due to back pain if the primary
+ diagnosis was identified as part of diagnosis group number 205 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+57 any_heart_pre_ed               Any ED visit for chest pain, pre-randomization                          24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to chest pain or heart conditions. An admission was classified as due to chest pain or heart
+ conditions if the primary diagnosis was identified as part of diagnosis group numbers 100, 101, or 102 by the
+ Clinical Classification Software published by the Healthcare Cost and Utilization Project (HCUP). It is
+ otherwise equal to zero.
+58 any_heart_ed                   Any ED visit for chest pain the study period                            24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to chest pain or heart conditions. An admission was classified as due to chest pain or heart
+ conditions if the primary diagnosis was identified as part of diagnosis group numbers 100, 101, or 102 by the
+ Clinical Classification Software published by the Healthcare Cost and Utilization Project (HCUP). It is
+ otherwise equal to zero.
+59 num_heart_pre_cens_ed          Number of ED visits for chest pain, pre-randomization (Censored)        24646
+ This variable is equal to the number of an ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to chest pain or heart conditions. An admission was classified as due to chest pain or
+ heart conditions if the primary diagnosis was identified as diagnosis code grouping numbers 100, 101, or 102
+ by the Clinical Classification Software published by the Healthcare Cost and Utilization Project (HCUP). The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution. The public use variable was
+ additionally censored to ensure de-identification (see User Guide for explanation).
+60 num_heart_cens_ed              Number of ED visits for chest pain the study period (Censored)          24643
+ This variable is equal to the number of an ED visits an individual had between March 10, 2008 and
+ September 30, 2009 (inclusive) due to chest pain or heart conditions. An admission was classified as due to
+ chest pain or heart conditions if the primary diagnosis was identified as part of diagnosis group numbers 100,
+ 101, or 102 by the Clinical Classification Software published by the Healthcare Cost and Utilization Project
+ (HCUP). The variable is equal to zero if the individual had no such visits or no emergency department visits
+ at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+61 any_head_pre_ed                Any ED visit for headache, pre-randomization                            24646
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to headache. An admission was classified as due to headache if the primary diagnosis was
+ identified as part of diagnosis group number 84 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+62 any_head_ed                    Any ED visit for headache the study period                              24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to headache. An admission was classified as due to headache if the primary diagnosis was
+ identified as part of diagnosis group number 84 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+
+63 num_head_pre_cens_ed          Number of ED visits for headache, pre-randomization (Censored)         24645
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to headache. An admission was classified as due to headache if the primary diagnosis
+ was identified as part of diagnosis group number 84 by the Clinical Classification Software published by the
+ Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the individual had no such
+ visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+64 num_head_cens_ed              Number of ED visits for headache the study period (Censored)           24645
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to headache. An admission was classified as due to headache if the primary
+ diagnosis was identified as part of diagnosis group number 84 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+65 any_depres_pre_ed             Any ED visit for mood disorders, pre-randomization                     24646
+ This variable is equal to 1 if an individual had an ED visit between 1 January 2007 and 9 March 2008
+ (inclusive) due to mood disorders. An admission was classified as due to a mood disorder if the primary
+ diagnosis was identified as part of diagnosis group number 657 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+66 any_depres_ed                 Any ED visit for mood disorders in the study period                    24646
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to mood disorders. An admission was classified as due to a mood disorder if the primary
+ diagnosis was identified as part of diagnosis group number 657 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+                                 Number of ED visits for mood disorders, pre-randomization
+67 num_depres_pre_cens_ed                                                                               24646
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to mood disorders. An admission was classified as due to a mood disorder if the primary
+ diagnosis was identified as part of diagnosis group number 657 by the Clinical Classification Software
+ published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if the
+ individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+                                 Number of ED visits for mood disorders in the study period
+68 num_depres_cens_ed                                                                                   24646
+                                 (Censored)
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to mood disorders. An admission was classified as due to a mood disorder if the
+ primary diagnosis was identified as part of diagnosis group number 657 by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if
+ the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on any). The public
+ use variable was additionally censored to ensure de-identification (see User Guide for explanation).
+                                 Any ED visit for psych conditions/substance abuse, pre-
+69 any_psysub_pre_ed                                                                                    24646
+                                 randomization
+ This variable is equal to 1 if an individual had an ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) due to psychiatric conditions or substance abuse. An admission was classified as due to a
+ psychiatric condition or substance abuse issue if the primary diagnosis was identified as part of diagnosis
+ group numbers 650, 651, 653, 656, 657, 658, 659, 660, 661, 662, or 670, by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+                                 Any ED visit for psych conditions/substance abuse in the study
+70 any_psysub_ed                                                                                        24646
+                                 period
+ This variable is equal to 1 if an individual had an ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) due to psychiatric conditions or substance abuse. An admission was classified as due to a
+ psychiatric condition or substance abuse issue if the primary diagnosis was identified as part of diagnosis
+ group numbers 650, 651, 653, 656, 657, 658, 659, 660, 661, 662, or 670, by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). It is otherwise equal to zero.
+                                 Number of ED visits for psych conditions/substance abuse, pre-
+71 num_psysub_pre_cens_ed                                                                               24646
+                                 randomization (Cen
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) due to psychiatric conditions or substance abuse. An admission was classified as due to a
+ psychiatric condition or substance abuse issue if the primary diagnosis was identified as part of diagnosis
+ group numbers 650, 651, 653, 656, 657, 658, 659, 660, 661, 662, or 670, by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if
+ the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+                                 Number of ED visits for psych conditions/substance abuse in the
+72 num_psysub_cens_ed                                                                                     24645
+                                 study period (Ce
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) due to psychiatric conditions or substance abuse. An admission was classified as due to a
+ psychiatric condition or substance abuse issue if the primary diagnosis was identified as part of diagnosis
+ group numbers 650, 651, 653, 656, 657, 658, 659, 660, 661, 662, or 670, by the Clinical Classification
+ Software published by the Healthcare Cost and Utilization Project (HCUP). The variable is equal to zero if
+ the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+73 any_mail_match_ed             Any ED visit in 6 months prior to the 12m survey date (ED Data)           7250
+ This variable is equal to 1 if an individual had an ED visit in the 6 months prior to the date he or she returned
+ the 12m survey. It is equal to zero if an individual did not have an ED visit in the 6 months prior to survey
+ return date. This variable is missing for individuals who were not in the 12m survey sample.
+                                 Number of ED visits in 6 mos prior to 12m survey response (ED
+74 num_mail_match_ed                                                                                       7247
+                                 data)
+ This variable is equal to the number of ED visits an individual had in the 6 months prior to the date he or she
+ returned the 12m survey. It is missing for individuals who were not in the 12m survey sample.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                 Any ED visit in 12 months prior to inperson survey response (ED
+75 any_inp_match_ed                                                                                       10178
+                                 Data)
+ This variable is equal to 1 if an individual had an ED visit in the 12 months prior to his or her in-person
+ interview date, and zero if an individual did not have an ED visit. This variable is missing for individuals who
+ did not complete an in-person interview.
+                                 Number of ED visits in 12 months prior to inperson survey
+76 num_inp_match_ed                                                                                       10173
+                                 response (ED Data)
+ This variable is equal to the number of ED visits an individual had in the 12 months prior to his or her in-
+ person interview date. This variable is missing for individuals who did not complete an in-person interview.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+77 charg_tot_pre_ed              Sum of total charges, pre-randomization                                  24637
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+78 charg_tot_ed                  Sum of total charges in the study period                                 24630
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+79 ed_charg_tot_pre_ed           Sum of total ED charges, pre-randomization                               24630
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+
+80 ed_charg_tot_ed                Sum of total ED charges in the study period                              24629
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+                                  Any ED visit to a high uninsured volume hospital, pre-
+81 any_hiun_pre_ed                                                                                         24646
+                                  randomization
+ This variable is equal to 1 if an individual had any ED visit between January 1, 2007 and March 9, 2008
+ (inclusive) to the six hospitals in the sample with the highest fraction of uninsured patients. It is otherwise
+ equal to zero.
+                                  Any ED visit to a high uninsured volume hospital in the study            24646
+82 any_hiun_ed                    period
+ This variable is equal to 1 if an individual had any ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) to the six hospitals in the sample with the highest fraction of uninsured patients. It is otherwise
+ equal to zero.
+                                  Num ED visits to a high uninsured volume hospital, pre-
+83 num_hiun_pre_cens_ed                                                                                    24635
+                                  randomization (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) at the six hospitals in the sample with the highest fraction of uninsured patients. The variable
+ is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                  Number of ED visits to a high uninsured volume hospital in the
+84 num_hiun_cens_ed                                                                                        24626
+                                  study period (Cen
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) at the six hospitals in the sample with the highest fraction of uninsured patients. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                  Any ED visit to a low uninsured volume hospital, pre-
+85 any_loun_pre_ed                                                                                         24646
+                                  randomization
+ This variable is equal to 1 if an individual had any ED visit between January 1, 2007 and March 10, 2008
+ (inclusive) to the six hospitals in the sample with the lowest fraction of uninsured patients. It is otherwise
+ equal to zero.
+                                  Any ED visit to a low uninsured volume hospital in the study
+86 any_loun_ed                                                                                             24646
+                                  period
+ This variable is equal to 1 if an individual had any ED visit between March 10, 2008 and September 30, 2009
+ (inclusive) to the six hospitals in the sample with the lowest fraction of uninsured patients. It is otherwise
+ equal to zero.
+
+                                  Num ED visits to a low uninsured volume hospital, pre-
+87 num_loun_pre_cens_ed                                                                                   24643
+                                  randomization (Censored)
+ This variable is equal to the number of ED visits an individual had between January 1, 2007 and March 9,
+ 2008 (inclusive) at the six hospitals in the sample with the lowest fraction of uninsured patients. The variable
+ is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+                                  Number of ED visits to a low uninsured volume hospital in the
+88 num_loun_cens_ed                                                                                       24643
+                                  study period (Cens
+ This variable is equal to the number of ED visits an individual had between March 10, 2008 and September
+ 30, 2009 (inclusive) at the six hospitals in the sample with the lowest fraction of uninsured patients. The
+ variable is equal to zero if the individual had no such visits or no emergency department visits at all.
+ This variable was truncated at 2* 99th percentile of the original distribution (conditional on being non-zero).
+ The public use variable was additionally censored to ensure de-identification (see User Guide for
+ explanation).
+
+File : oregonhie_ed_vars
+# person_id:         Scrambled individual identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 5-74920] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=37523.537 /-] [StdDev=21582.741 /-]
+# sample_ed:          Individual residing in a zip code included in the ED study
+Information                             [Type= discrete] [Format=numeric] [Range= 1-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                                                                                                                     24646                                           100.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_visit_pre_ed:               Any ED visit, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            16930                                           68.7%
+ 1                       Yes                                                                                            7716                                31.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_visit_ed:           Any ED visit in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            16180                                           65.6%
+ 1                       Yes                                                                                            8466                                   34.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_visit_pre_cens_ed:                    Number of of ED visits, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-17] [Missing=*]
+Statistics [NW/ W]                      [Valid=24634 /-] [Invalid=12 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     16930                                           68.7%
+ 1                                                                                                                      3881                        15.8%
+ 2                                                                                                                      1594                6.5%
+ 3                                                                                                                       839             3.4%
+ 4                                                                                                                       445            1.8%
+ 5                                                                                                                       266            1.1%
+ 6                                                                                                                       177           0.7%
+ 7                                                                                                                       121           0.5%
+ 8                                                                                                                        83           0.3%
+ 9                                                                                                                        50           0.2%
+ 10                                                                                                                       43           0.2%
+ 11                                                                                                                       36           0.1%
+ 12                                                                                                                       29           0.1%
+ 13                                                                                                                       22           0.1%
+ 14                                                                                                                       23           0.1%
+                                                                                                    - 12 -
+
+File : oregonhie_ed_vars
+# num_visit_pre_cens_ed:                    Number of of ED visits, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 15                                                                                                                       18          0.1%
+ 16                                                                                                                       10          0.0%
+ 17                                                                                                                       67           0.3%
+ Sysmiss                                                                                                                  12
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_visit_cens_ed:                 Number of ED visits in the study period (Censored)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-22] [Missing=*]
+Statistics [NW/ W]                      [Valid=24622 /-] [Invalid=24 /-] [Mean=0.997 /-] [StdDev=2.41 /-]
+# any_hosp_pre_ed:                 Any ED visit resulting in a hospitalization, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23104                                           93.7%
+ 1                       Yes                                                                                            1542              6.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_hosp_ed:             Any ED visit resulting in a hospitalization in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            22883                                           92.8%
+ 1                       Yes                                                                                            1763               7.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_hosp_pre_cens_ed:                      Number of ED visits resulting in a hospitalization, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23104                                           93.8%
+ 1                                                                                                                      1164             4.7%
+ 2                                                                                                                       230           0.9%
+ 3                                                                                                                        69           0.3%
+ 4                                                                                                                        40           0.2%
+ 5                                                                                                                        22          0.1%
+ 6                                                                                                                        15          0.1%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_hosp_cens_ed:                   Number of ED visits resulting in a hospitalization in the study period (Censored
+Information                             [Type= discrete] [Format=numeric] [Range= 0-7] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     22883                                           92.9%
+                                                                                                    - 13 -
+
+File : oregonhie_ed_vars
+# num_hosp_cens_ed:                   Number of ED visits resulting in a hospitalization in the study period (Censored
+ Value                   Label                                                                                         Cases                                  Percentage
+ 1                                                                                                                      1220             5.0%
+ 2                                                                                                                       314           1.3%
+ 3                                                                                                                        93           0.4%
+ 4                                                                                                                        49           0.2%
+ 5                                                                                                                        39           0.2%
+ 6                                                                                                                        16          0.1%
+ 7                                                                                                                        30           0.1%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_out_pre_ed:                Any Outpatient ED visit, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            17476                                             70.9%
+ 1                       Yes                                                                                            7170                                29.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_out_ed:           Any Outpatient ED visit in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            16733                                             67.9%
+ 1                       Yes                                                                                            7913                                   32.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_out_pre_cens_ed:                    Number of Outpatient ED visits, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-16] [Missing=*]
+Statistics [NW/ W]                      [Valid=24634 /-] [Invalid=12 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                                                                                                                     17476                                             70.9%
+ 1                                                                                                                      3768                        15.3%
+ 2                                                                                                                      1475               6.0%
+ 3                                                                                                                       723             2.9%
+ 4                                                                                                                       395            1.6%
+ 5                                                                                                                       233           0.9%
+ 6                                                                                                                       154           0.6%
+ 7                                                                                                                        90           0.4%
+ 8                                                                                                                        65           0.3%
+ 9                                                                                                                        38           0.2%
+ 10                                                                                                                       39           0.2%
+ 11                                                                                                                       37           0.2%
+ 12                                                                                                                       27           0.1%
+ 13                                                                                                                       20          0.1%
+                                                                                                    - 14 -
+
+File : oregonhie_ed_vars
+# num_out_pre_cens_ed:                    Number of Outpatient ED visits, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                    Percentage
+ 14                                                                                                                       14          0.1%
+ 15                                                                                                                       15          0.1%
+ 16                                                                                                                       65           0.3%
+ Sysmiss                                                                                                                  12
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_out_cens_ed:                  Number of Outpatient ED visits in the study period (Censored)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-21] [Missing=*]
+Statistics [NW/ W]                      [Valid=24622 /-] [Invalid=24 /-] [Mean=0.885 /-] [StdDev=2.206 /-]
+# any_on_pre_ed:               Any weekday daytime ED visit, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       No                                                                                            19045                                               77.3%
+ 1                       Yes                                                                                            5601                            22.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_on_ed:           Any weekday daytime ED visit in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       No                                                                                            18380                                               74.6%
+ 1                       Yes                                                                                            6266                                25.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_on_pre_cens_ed:                    Number of weekday daytime ED visits, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-13] [Missing=*]
+Statistics [NW/ W]                      [Valid=24637 /-] [Invalid=9 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                                                                                                                     19045                                               77.3%
+ 1                                                                                                                      3271                    13.3%
+ 2                                                                                                                      1175              4.8%
+ 3                                                                                                                       454            1.8%
+ 4                                                                                                                       247           1.0%
+ 5                                                                                                                       139           0.6%
+ 6                                                                                                                       100           0.4%
+ 7                                                                                                                        53           0.2%
+ 8                                                                                                                        45           0.2%
+ 9                                                                                                                        29           0.1%
+ 10                                                                                                                       15          0.1%
+ 11                                                                                                                       17          0.1%
+ 12                                                                                                                       11          0.0%
+ 13                                                                                                                       36           0.1%
+ Sysmiss                                                                                                                   9
+                                                                                                    - 15 -
+
+File : oregonhie_ed_vars
+# num_on_pre_cens_ed:                    Number of weekday daytime ED visits, pre-randomization (Censored)
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_on_cens_ed:                 Number of weekday daytime ED visits in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-15] [Missing=*]
+Statistics [NW/ W]                      [Valid=24628 /-] [Invalid=18 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                                                                                                                     18380                                             74.6%
+ 1                                                                                                                      3383                     13.7%
+ 2                                                                                                                      1297               5.3%
+ 3                                                                                                                       642             2.6%
+ 4                                                                                                                       335            1.4%
+ 5                                                                                                                       162           0.7%
+ 6                                                                                                                       127           0.5%
+ 7                                                                                                                        71           0.3%
+ 8                                                                                                                        59           0.2%
+ 9                                                                                                                        31           0.1%
+ 10                                                                                                                       34           0.1%
+ 11                                                                                                                       20          0.1%
+ 12                                                                                                                       17          0.1%
+ 13                                                                                                                       14          0.1%
+ 14                                                                                                                       11          0.0%
+ 15                                                                                                                       45           0.2%
+ Sysmiss                                                                                                                  18
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_off_pre_ed:              Any weekend or nighttime ED visits, prerandomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19953                                             81.0%
+ 1                       Yes                                                                                            4693                         19.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_off_ed:          Any weekend or nighttime ED visit in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19223                                             78.0%
+ 1                       Yes                                                                                            5423                            22.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_off_pre_cens_ed:                   Number of weekend or nighttime ED visits, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-10] [Missing=*]
+Statistics [NW/ W]                      [Valid=24635 /-] [Invalid=11 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                                                                                                                     19953                                             81.0%
+                                                                                                    - 16 -
+
+File : oregonhie_ed_vars
+# num_off_pre_cens_ed:                   Number of weekend or nighttime ED visits, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                                                                                                                      3053                   12.4%
+ 2                                                                                                                       899             3.6%
+ 3                                                                                                                       353            1.4%
+ 4                                                                                                                       149           0.6%
+ 5                                                                                                                        83           0.3%
+ 6                                                                                                                        47           0.2%
+ 7                                                                                                                        28           0.1%
+ 8                                                                                                                        23          0.1%
+ 9                                                                                                                        14          0.1%
+ 10                                                                                                                       33           0.1%
+ Sysmiss                                                                                                                  11
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_off_cens_ed:                 Number of weekend or nighttime ED visits in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-14] [Missing=*]
+Statistics [NW/ W]                      [Valid=24635 /-] [Invalid=11 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     19223                                           78.0%
+ 1                                                                                                                      3201                    13.0%
+ 2                                                                                                                      1071              4.3%
+ 3                                                                                                                       470            1.9%
+ 4                                                                                                                       219           0.9%
+ 5                                                                                                                       133           0.5%
+ 6                                                                                                                        82           0.3%
+ 7                                                                                                                        66           0.3%
+ 8                                                                                                                        28           0.1%
+ 9                                                                                                                        29           0.1%
+ 10                                                                                                                       27           0.1%
+ 11                                                                                                                       13          0.1%
+ 12                                                                                                                       15          0.1%
+ 13                                                                                                                       11          0.0%
+ 14                                                                                                                       47           0.2%
+ Sysmiss                                                                                                                  11
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_edcnnp_pre_ed:                    Number of emergent, non-preventable ED visits, pre-randomization (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-9.33761119842529] [Missing=*]
+Statistics [NW/ W]                      [Valid=24637 /-] [Invalid=9 /-] [Mean=0.16 /-] [StdDev=0.5 /-]
+# num_edcnnp_ed:                 Number of emergent, non-preventable ED visits in the study period (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-14.2110118865967] [Missing=*]
+Statistics [NW/ W]                      [Valid=24635 /-] [Invalid=11 /-] [Mean=0.211 /-] [StdDev=0.693 /-]
+# num_edcnpa_pre_ed:                   Number of emergent, preventable ED visits, pre-randomization (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-6.90842485427856] [Missing=*]
+                                                                                                    - 17 -
+
+File : oregonhie_ed_vars
+# num_edcnpa_pre_ed:                   Number of emergent, preventable ED visits, pre-randomization (see codebook)
+Statistics [NW/ W]                      [Valid=24642 /-] [Invalid=4 /-] [Mean=0.0608 /-] [StdDev=0.283 /-]
+# num_edcnpa_ed:                 Number of emergent, preventable ED visits in the study period (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-8.88808345794678] [Missing=*]
+Statistics [NW/ W]                      [Valid=24643 /-] [Invalid=3 /-] [Mean=0.0747 /-] [StdDev=0.347 /-]
+# num_epct_pre_ed:                  Number of primary care treatable ED visits, pre-randomization (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-12.7361106872559] [Missing=*]
+Statistics [NW/ W]                      [Valid=24635 /-] [Invalid=11 /-] [Mean=0.268 /-] [StdDev=0.749 /-]
+# num_epct_ed:             Number of primary care treatable ED visits in the study period (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-16.4295063018799] [Missing=*]
+Statistics [NW/ W]                      [Valid=24626 /-] [Invalid=20 /-] [Mean=0.348 /-] [StdDev=0.961 /-]
+# num_ne_pre_ed:                 Number of non-emergent ED visits, pre-randomization(see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-12.1206293106079] [Missing=*]
+Statistics [NW/ W]                      [Valid=24638 /-] [Invalid=8 /-] [Mean=0.161 /-] [StdDev=0.578 /-]
+# num_ne_ed:            Number of non-emergent ED visits in the study period (see codebook)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-13.6384401321411] [Missing=*]
+Statistics [NW/ W]                      [Valid=24634 /-] [Invalid=12 /-] [Mean=0.203 /-] [StdDev=0.702 /-]
+# num_unclas_pre_ed:                   Number of of unclassified ED visits, pre-randomization (see codebook)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-10] [Missing=*]
+Statistics [NW/ W]                      [Valid=24642 /-] [Invalid=4 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     22344                                           90.7%
+ 1                                                                                                                      1662               6.7%
+ 2                                                                                                                       386            1.6%
+ 3                                                                                                                       136           0.6%
+ 4                                                                                                                        50           0.2%
+ 5                                                                                                                        34           0.1%
+ 6                                                                                                                        16          0.1%
+ 7                                                                                                                         7          0.0%
+ 8                                                                                                                         1          0.0%
+ 9                                                                                                                         4          0.0%
+ 10                                                                                                                        2          0.0%
+ Sysmiss                                                                                                                   4
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_unclas_ed:               Number of of unclassified ED visits in the study period (see codebook)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-16] [Missing=*]
+Statistics [NW/ W]                      [Valid=24641 /-] [Invalid=5 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     21828                                           88.6%
+ 1                                                                                                                      1909                7.7%
+ 2                                                                                                                       492            2.0%
+                                                                                                    - 18 -
+
+File : oregonhie_ed_vars
+# num_unclas_ed:               Number of of unclassified ED visits in the study period (see codebook)
+ Value                   Label                                                                                         Cases                                Percentage
+ 3                                                                                                                       188           0.8%
+ 4                                                                                                                        82           0.3%
+ 5                                                                                                                        56           0.2%
+ 6                                                                                                                        31           0.1%
+ 7                                                                                                                        20          0.1%
+ 8                                                                                                                        13          0.1%
+ 9                                                                                                                         5          0.0%
+ 10                                                                                                                        5          0.0%
+ 11                                                                                                                        3          0.0%
+ 12                                                                                                                        3          0.0%
+ 13                                                                                                                        1          0.0%
+ 14                                                                                                                        2          0.0%
+ 15                                                                                                                        2          0.0%
+ 16                                                                                                                        1          0.0%
+ Sysmiss                                                                                                                   5
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_acsc_pre_ed:                Any ambulatory case sensitive ED visit, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23733                                           96.3%
+ 1                       Yes                                                                                             913             3.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_acsc_ed:            Any ambulatory case sensitive ED visit in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23507                                           95.4%
+ 1                       Yes                                                                                            1139             4.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_acsc_pre_cens_ed:                     Number of of unclassified ED visits, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23733                                           96.3%
+ 1                                                                                                                       697            2.8%
+ 2                                                                                                                       136           0.6%
+ 3                                                                                                                        47           0.2%
+ 4                                                                                                                        17          0.1%
+ 5                                                                                                                        14          0.1%
+ Sysmiss                                                                                                                   2
+                                                                                                    - 19 -
+
+File : oregonhie_ed_vars
+# num_acsc_pre_cens_ed:                     Number of of unclassified ED visits, pre-randomization (Censored)
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_acsc_cens_ed:                  Number of ambulatory case sensitive ED visits in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23507                                           95.4%
+ 1                                                                                                                       862             3.5%
+ 2                                                                                                                       164           0.7%
+ 3                                                                                                                        56           0.2%
+ 4                                                                                                                        21          0.1%
+ 5                                                                                                                        15          0.1%
+ 6                                                                                                                        19          0.1%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_chron_pre_ed:                  Any ED visit for chronic condition, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            22618                                           91.8%
+ 1                       Yes                                                                                            2028                8.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_chron_ed:              Any ED visit for chronic condition, study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            22190                                           90.0%
+ 1                       Yes                                                                                            2456                 10.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_chron_pre_cens_ed:                       Num. of ED visits for chronic conditions, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-9] [Missing=*]
+Statistics [NW/ W]                      [Valid=24643 /-] [Invalid=3 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     22618                                           91.8%
+ 1                                                                                                                      1365              5.5%
+ 2                                                                                                                       336           1.4%
+ 3                                                                                                                       139           0.6%
+ 4                                                                                                                        68           0.3%
+ 5                                                                                                                        41           0.2%
+ 6                                                                                                                        24          0.1%
+ 7                                                                                                                        12          0.0%
+ 8                                                                                                                        10          0.0%
+ 9                                                                                                                        30           0.1%
+                                                                                                    - 20 -
+
+File : oregonhie_ed_vars
+# num_chron_pre_cens_ed:                       Num. of ED visits for chronic conditions, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ Sysmiss                                                                                                                   3
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_chron_cens_ed:                   Number of ED visits for chronic conditions, study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-10] [Missing=*]
+Statistics [NW/ W]                      [Valid=24642 /-] [Invalid=4 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     22190                                           90.0%
+ 1                                                                                                                      1529              6.2%
+ 2                                                                                                                       433            1.8%
+ 3                                                                                                                       191           0.8%
+ 4                                                                                                                        93           0.4%
+ 5                                                                                                                        73           0.3%
+ 6                                                                                                                        40           0.2%
+ 7                                                                                                                        25          0.1%
+ 8                                                                                                                        12          0.0%
+ 9                                                                                                                        20          0.1%
+ 10                                                                                                                       36           0.1%
+ Sysmiss                                                                                                                   4
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_inj_pre_ed:              Any ED visit for injury, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            21696                                           88.0%
+ 1                       Yes                                                                                            2950                  12.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_inj_ed:          Any ED visit for injury in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            21068                                           85.5%
+ 1                       Yes                                                                                            3578                    14.5%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_inj_pre_cens_ed:                   Number of ED visits for injury, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24639 /-] [Invalid=7 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     21696                                           88.1%
+ 1                                                                                                                      2178                8.8%
+ 2                                                                                                                       483            2.0%
+ 3                                                                                                                       158           0.6%
+                                                                                                    - 21 -
+
+File : oregonhie_ed_vars
+# num_inj_pre_cens_ed:                   Number of ED visits for injury, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 4                                                                                                                        61           0.2%
+ 5                                                                                                                        32           0.1%
+ 6                                                                                                                        31           0.1%
+ Sysmiss                                                                                                                   7
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_inj_cens_ed:                 Number of ED visits for injury in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-10] [Missing=*]
+Statistics [NW/ W]                      [Valid=24638 /-] [Invalid=8 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     20017                                           81.2%
+ 1                                                                                                                      3050                   12.4%
+ 2                                                                                                                       874             3.5%
+ 3                                                                                                                       308            1.3%
+ 4                                                                                                                       152           0.6%
+ 5                                                                                                                        86           0.3%
+ 6                                                                                                                        45           0.2%
+ 7                                                                                                                        26           0.1%
+ 8                                                                                                                        26           0.1%
+ 9                                                                                                                        11          0.0%
+ 10                                                                                                                       43           0.2%
+ Sysmiss                                                                                                                   8
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_skin_pre_ed:                Any ED visit for skin conditions, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23907                                           97.0%
+ 1                       Yes                                                                                             739             3.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_skin_ed:            Any ED visit for skin conditions in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23770                                           96.4%
+ 1                       Yes                                                                                             876             3.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_skin_pre_cens_ed:                     Number of ED visits for skin conditions, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23907                                           97.0%
+                                                                                                    - 22 -
+
+File : oregonhie_ed_vars
+# num_skin_pre_cens_ed:                     Number of ED visits for skin conditions, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                                                                                                                       483            2.0%
+ 2                                                                                                                       158           0.6%
+ 3                                                                                                                        58           0.2%
+ 4                                                                                                                        23          0.1%
+ 5                                                                                                                        17          0.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_skin_cens_ed:                  Number of ED visits for skin conditions in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23770                                           96.4%
+ 1                                                                                                                       579            2.3%
+ 2                                                                                                                       180           0.7%
+ 3                                                                                                                        59           0.2%
+ 4                                                                                                                        29           0.1%
+ 5                                                                                                                        10          0.0%
+ 6                                                                                                                        18          0.1%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_abdo_pre_ed:                 Any ED visit for abdominal pain, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23971                                           97.3%
+ 1                       Yes                                                                                             675            2.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_abdo_ed:             Any ED visit for abdominal pain the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23830                                           96.7%
+ 1                       Yes                                                                                             816             3.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 23 -
+
+# num_abdo_pre_cens_ed:                      Number of ED visits for abdominal pain, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23971                                           97.3%
+ 1                                                                                                                       526            2.1%
+ 2                                                                                                                        88           0.4%
+ 3                                                                                                                        24          0.1%
+ 4                                                                                                                        12          0.0%
+ 5                                                                                                                        23          0.1%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_abdo_cens_ed:                   Number of ED visits for abdominal pain the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23830                                           96.7%
+ 1                                                                                                                       624            2.5%
+ 2                                                                                                                       106           0.4%
+ 3                                                                                                                        39           0.2%
+ 4                                                                                                                        20          0.1%
+ 5                                                                                                                        26          0.1%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_back_pre_ed:                 Any ED visit for back pain, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24088                                           97.7%
+ 1                       Yes                                                                                             558            2.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_back_ed:             Any ED visit for back pain the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23931                                           97.1%
+ 1                       Yes                                                                                             715            2.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_back_pre_cens_ed:                      Number of ED visits for back pain, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24088                                           97.7%
+ 1                                                                                                                       424            1.7%
+                                                                                                    - 24 -
+
+# num_back_pre_cens_ed:                      Number of ED visits for back pain, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 2                                                                                                                        68           0.3%
+ 3                                                                                                                        29           0.1%
+ 4                                                                                                                        16          0.1%
+ 5                                                                                                                        20          0.1%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_back_cens_ed:                   Number of ED visits for back pain the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24644 /-] [Invalid=2 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23931                                           97.1%
+ 1                                                                                                                       520            2.1%
+ 2                                                                                                                       107           0.4%
+ 3                                                                                                                        40           0.2%
+ 4                                                                                                                        19          0.1%
+ 5                                                                                                                        27          0.1%
+ Sysmiss                                                                                                                   2
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_heart_pre_ed:                 Any ED visit for chest pain, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24179                                           98.1%
+ 1                       Yes                                                                                             467            1.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_heart_ed:             Any ED visit for chest pain the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24001                                           97.4%
+ 1                       Yes                                                                                             645            2.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_heart_pre_cens_ed:                      Number of ED visits for chest pain, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-3] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24179                                           98.1%
+ 1                                                                                                                       398            1.6%
+ 2                                                                                                                        46           0.2%
+ 3                                                                                                                        23          0.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 25 -
+
+# num_heart_cens_ed:                  Number of ED visits for chest pain the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-4] [Missing=*]
+Statistics [NW/ W]                      [Valid=24643 /-] [Invalid=3 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24001                                           97.4%
+ 1                                                                                                                       531            2.2%
+ 2                                                                                                                        72           0.3%
+ 3                                                                                                                        18          0.1%
+ 4                                                                                                                        21          0.1%
+ Sysmiss                                                                                                                   3
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_head_pre_ed:                 Any ED visit for headache, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24229                                           98.3%
+ 1                       Yes                                                                                             417            1.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_head_ed:             Any ED visit for headache the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24153                                           98.0%
+ 1                       Yes                                                                                             493            2.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_head_pre_cens_ed:                      Number of ED visits for headache, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-4] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24229                                           98.3%
+ 1                                                                                                                       316           1.3%
+ 2                                                                                                                        43           0.2%
+ 3                                                                                                                        18          0.1%
+ 4                                                                                                                        39           0.2%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_head_cens_ed:                   Number of ED visits for headache the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24153                                           98.0%
+ 1                                                                                                                       378            1.5%
+ 2                                                                                                                        62           0.3%
+ 3                                                                                                                        13          0.1%
+                                                                                                    - 26 -
+
+# num_head_cens_ed:                   Number of ED visits for headache the study period (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 4                                                                                                                        11          0.0%
+ 5                                                                                                                        28           0.1%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_depres_pre_ed:                  Any ED visit for mood disorders, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24244                                           98.4%
+ 1                       Yes                                                                                             402            1.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_depres_ed:              Any ED visit for mood disorders in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            24241                                           98.4%
+ 1                       Yes                                                                                             405            1.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_depres_pre_cens_ed:                       Number of ED visits for mood disorders, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-5] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24244                                           98.4%
+ 1                                                                                                                       285           1.2%
+ 2                                                                                                                        69           0.3%
+ 3                                                                                                                        22          0.1%
+ 4                                                                                                                        11          0.0%
+ 5                                                                                                                        15          0.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_depres_cens_ed:                   Number of ED visits for mood disorders in the study period (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     24241                                           98.4%
+ 1                                                                                                                       261           1.1%
+ 2                                                                                                                        82           0.3%
+ 3                                                                                                                        18          0.1%
+ 4                                                                                                                        19          0.1%
+ 5                                                                                                                        14          0.1%
+ 6                                                                                                                        11          0.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 27 -
+
+# any_psysub_pre_ed:                  Any ED visit for psych conditions/substance abuse, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23782                                           96.5%
+ 1                       Yes                                                                                             864             3.5%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_psysub_ed:               Any ED visit for psych conditions/substance abuse in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            23678                                           96.1%
+ 1                       Yes                                                                                             968             3.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_psysub_pre_cens_ed:                        Number of ED visits for psych conditions/substance abuse, pre-randomization (Cen
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23782                                           96.5%
+ 1                                                                                                                       582            2.4%
+ 2                                                                                                                       146           0.6%
+ 3                                                                                                                        55           0.2%
+ 4                                                                                                                        29           0.1%
+ 5                                                                                                                        24          0.1%
+ 6                                                                                                                        28           0.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_psysub_cens_ed:                    Number of ED visits for psych conditions/substance abuse in the study period (Ce
+Information                             [Type= discrete] [Format=numeric] [Range= 0-8] [Missing=*]
+Statistics [NW/ W]                      [Valid=24645 /-] [Invalid=1 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     23678                                           96.1%
+ 1                                                                                                                       594            2.4%
+ 2                                                                                                                       171           0.7%
+ 3                                                                                                                        67           0.3%
+ 4                                                                                                                        40           0.2%
+ 5                                                                                                                        33           0.1%
+ 6                                                                                                                        15          0.1%
+ 7                                                                                                                        15          0.1%
+ 8                                                                                                                        32           0.1%
+ Sysmiss                                                                                                                   1
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_mail_match_ed:                   Any ED visit in 6 months prior to the 12m survey date (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=7250 /-] [Invalid=17396 /-]
+                                                                                                    - 28 -
+
+# any_mail_match_ed:                   Any ED visit in 6 months prior to the 12m survey date (ED Data)
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                                                                                                                      6091                                              84.0%
+ 1                                                                                                                      1159                      16.0%
+ Sysmiss                                                                                                               17396
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_mail_match_ed:                    Number of ED visits in 6 mos prior to 12m survey response (ED data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-19] [Missing=*]
+Statistics [NW/ W]                      [Valid=7247 /-] [Invalid=17399 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                                                                                                                      6091                                              84.0%
+ 1                                                                                                                       737                 10.2%
+ 2                                                                                                                       225             3.1%
+ 3                                                                                                                        92           1.3%
+ 4                                                                                                                        38           0.5%
+ 5                                                                                                                        21           0.3%
+ 6                                                                                                                        12           0.2%
+ 7                                                                                                                         9           0.1%
+ 8                                                                                                                         8           0.1%
+ 9                                                                                                                         3          0.0%
+ 10                                                                                                                        4          0.1%
+ 11                                                                                                                        1          0.0%
+ 12                                                                                                                        3          0.0%
+ 13                                                                                                                        1          0.0%
+ 14                                                                                                                        1          0.0%
+ 19                                                                                                                        1          0.0%
+ Sysmiss                                                                                                               17399
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_inp_match_ed:                  Any ED visit in 12 months prior to inperson survey response (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=10178 /-] [Invalid=14468 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                                                                                                                      7370                                              72.4%
+ 1                                                                                                                      2808                                27.6%
+ Sysmiss                                                                                                               14468
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_inp_match_ed:                   Number of ED visits in 12 months prior to inperson survey response (ED Data)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-33] [Missing=*]
+Statistics [NW/ W]                      [Valid=10173 /-] [Invalid=14473 /-] [Mean=0.679 /-] [StdDev=1.914 /-]
+# charg_tot_pre_ed:                Sum of total charges, pre-randomization
+Information                             [Type= continuous] [Format=numeric] [Range= 0-183077.375] [Missing=*]
+Statistics [NW/ W]                      [Valid=24637 /-] [Invalid=9 /-] [Mean=2209.638 /-] [StdDev=9355.617 /-]
+# charg_tot_ed:            Sum of total charges in the study period
+Information                             [Type= continuous] [Format=numeric] [Range= 0-280552.375] [Missing=*]
+                                                                                                    - 29 -
+
+# charg_tot_ed:            Sum of total charges in the study period
+Statistics [NW/ W]                      [Valid=24630 /-] [Invalid=16 /-] [Mean=3545.794 /-] [StdDev=14782.2 /-]
+# ed_charg_tot_pre_ed:                  Sum of total ED charges, pre-randomization
+Information                             [Type= continuous] [Format=numeric] [Range= 0-42315.6484375] [Missing=*]
+Statistics [NW/ W]                      [Valid=24630 /-] [Invalid=16 /-] [Mean=894.847 /-] [StdDev=2593.457 /-]
+# ed_charg_tot_ed:               Sum of total ED charges in the study period
+Information                             [Type= continuous] [Format=numeric] [Range= 0-71156.6875] [Missing=*]
+Statistics [NW/ W]                      [Valid=24629 /-] [Invalid=17 /-] [Mean=1417.408 /-] [StdDev=4156.592 /-]
+# any_hiun_pre_ed:                 Any ED visit to a high uninsured volume hospital, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       No                                                                                            19565                                              79.4%
+ 1                       Yes                                                                                            5081                          20.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_hiun_ed:            Any ED visit to a high uninsured volume hospital in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       No                                                                                            18931                                              76.8%
+ 1                       Yes                                                                                            5715                             23.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_hiun_pre_cens_ed:                     Num ED visits to a high uninsured volume hospital, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-13] [Missing=*]
+Statistics [NW/ W]                      [Valid=24635 /-] [Invalid=11 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                                                                                                                     19565                                              79.4%
+ 1                                                                                                                      2769                   11.2%
+ 2                                                                                                                      1020             4.1%
+ 3                                                                                                                       541            2.2%
+ 4                                                                                                                       261           1.1%
+ 5                                                                                                                       147           0.6%
+ 6                                                                                                                        93           0.4%
+ 7                                                                                                                        63           0.3%
+ 8                                                                                                                        34           0.1%
+ 9                                                                                                                        35           0.1%
+ 10                                                                                                                       26           0.1%
+ 11                                                                                                                       19          0.1%
+ 12                                                                                                                       13          0.1%
+ 13                                                                                                                       49           0.2%
+ Sysmiss                                                                                                                  11
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 30 -
+
+# num_hiun_cens_ed:                   Number of ED visits to a high uninsured volume hospital in the study period (Cen
+Information                             [Type= discrete] [Format=numeric] [Range= 0-16] [Missing=*]
+Statistics [NW/ W]                      [Valid=24626 /-] [Invalid=20 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     18931                                           76.9%
+ 1                                                                                                                      2803                   11.4%
+ 2                                                                                                                      1190              4.8%
+ 3                                                                                                                       610            2.5%
+ 4                                                                                                                       349            1.4%
+ 5                                                                                                                       222           0.9%
+ 6                                                                                                                       125           0.5%
+ 7                                                                                                                        93           0.4%
+ 8                                                                                                                        63           0.3%
+ 9                                                                                                                        62           0.3%
+ 10                                                                                                                       36           0.1%
+ 11                                                                                                                       26           0.1%
+ 12                                                                                                                       19          0.1%
+ 13                                                                                                                       19          0.1%
+ 14                                                                                                                       14          0.1%
+ 15                                                                                                                       15          0.1%
+ 16                                                                                                                       49           0.2%
+ Sysmiss                                                                                                                  20
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_loun_pre_ed:                Any ED visit to a low uninsured volume hospital, pre-randomization
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20667                                           83.9%
+ 1                       Yes                                                                                            3979                      16.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_loun_ed:            Any ED visit to a low uninsured volume hospital in the study period
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20157                                           81.8%
+ 1                       Yes                                                                                            4489                        18.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_loun_pre_cens_ed:                     Num ED visits to a low uninsured volume hospital, pre-randomization (Censored)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-12] [Missing=*]
+Statistics [NW/ W]                      [Valid=24643 /-] [Invalid=3 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     20667                                           83.9%
+ 1                                                                                                                      2295                 9.3%
+ 2                                                                                                                       814             3.3%
+                                                                                                    - 31 -
+
+# num_loun_pre_cens_ed:                     Num ED visits to a low uninsured volume hospital, pre-randomization (Censored)
+ Value                   Label                                                                                         Cases                                Percentage
+ 3                                                                                                                       357            1.4%
+ 4                                                                                                                       176           0.7%
+ 5                                                                                                                       111           0.5%
+ 6                                                                                                                        70           0.3%
+ 7                                                                                                                        36           0.1%
+ 8                                                                                                                        25           0.1%
+ 9                                                                                                                        24           0.1%
+ 10                                                                                                                       11          0.0%
+ 11                                                                                                                       16          0.1%
+ 12                                                                                                                       41           0.2%
+ Sysmiss                                                                                                                   3
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# num_loun_cens_ed:                  Number of ED visits to a low uninsured volume hospital in the study period (Cens
+Information                             [Type= discrete] [Format=numeric] [Range= 0-14] [Missing=*]
+Statistics [NW/ W]                      [Valid=24643 /-] [Invalid=3 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                                                                                                                     20157                                           81.8%
+ 1                                                                                                                      2440                 9.9%
+ 2                                                                                                                       853             3.5%
+ 3                                                                                                                       434            1.8%
+ 4                                                                                                                       231           0.9%
+ 5                                                                                                                       153           0.6%
+ 6                                                                                                                       103           0.4%
+ 7                                                                                                                        67           0.3%
+ 8                                                                                                                        41           0.2%
+ 9                                                                                                                        32           0.1%
+ 10                                                                                                                       21          0.1%
+ 11                                                                                                                       20          0.1%
+ 12                                                                                                                       14          0.1%
+ 13                                                                                                                       14          0.1%
+ 14                                                                                                                       63           0.3%
+ Sysmiss                                                                                                                   3
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 32 -
+

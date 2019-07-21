@@ -1,0 +1,518 @@
+               Codebook: Oregon Health Insurance Experiment, State Programs Variables
+This codebook lists all of the publicly available variables pertaining to state programs (Medicaid, Supplemental
+Nutrition Assistance Program, and Temporary Assistance to Needy Families) that are necessary to replicate the
+results of the Oregon Health Insurance Experiment presented in Finkelstein et al (2012). The codebook has two
+sections. In the first section, variable name, label, and number of non-missing values are given. Where
+applicable, the text of the survey question and/or notes on variable construction are given immediately following
+the variable. In the second section, variable name, label, and any relevant survey question text are given along
+with descriptive statistics.
+                                                                                                                  Non-
+   #                Variable Name                                 Variable Description
+                                                                                                                missing
+   1      person_id                             Scrambled individual identifier                                  74922
+                                                Ever enrolled in Medicaid from matched notification date
+   2      ohp_all_ever_matchn_30sep2009                                                                          74922
+                                                to 30sep2009
+      This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+      lotteried program, OHP Standard) between his or her matched notification date and 30 September 2009. In
+      the analysis of the hospital discharge, credit report, and mortality data in Finkelstein et al. (2012), this
+      variable was used as the definition of insurance coverage in estimating the effect of Medicaid.
+                                                Ever enrolled in Medicaid from first notification date
+   3      ohp_all_ever_firstn_survey0m                                                                           58405
+                                                (10mar2008) to 30aug2008
+      This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+      lotteried program, OHP Standard) between the earliest notification date in the sample (10 March 2008) and
+      the last day of the month of mean response to the Initial Mail Survey (30 August 2008).
+                                                Ever enrolled in Medicaid from first notification date
+   4      ohp_all_ever_firstn_survey6m                                                                           13024
+                                                (10mar2008) to 28feb2009
+      This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+      lotteried program, OHP Standard) between the earliest notification date in the sample (10 March 2008) and
+      the last day of the month of mean response to the Six Month Mail Survey (28 February 2009).
+                                                Ever enrolled in Medicaid from 10mar2008 until in-person 20745
+   5      ohp_all_ever_inperson
+                                                interview date
+    This variable is defined only for in-person survey participants: it takes a value of 1 if an individual was
+    enrolled in any Medicaid program (including the lotteried program, OHP Standard) between the earliest
+    notification date in the sample (10 March 2008) and the in-person interview date. In the analysis in Baicker et
+    al (2013), this variable was used as the definition of insurance coverage in estimating the effect of Medicaid.
+
+                                            Ever enrolled in Medicaid from 1st not. date (10mar2008)
+ 6     ohp_all_ever_firstn_30sep2009                                                                        58405
+                                            to 30sep2009
+   This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+   lotteried program, OHP Standard) between the earliest notification date in the sample (10 March 2008) and
+   30 September 2009. In the analysis of the 12-month mail survey data in Finkelstein et al (2012), this
+   variable was used as the definition of insurance coverage in estimating the effect of Medicaid. In the
+   analysis in Taubman et al (201XX), this variable was used as the definition of insurance coverage in
+   estimating the effect of Medicaid.
+ 7     ohp_all_end_30sep2009                Enrolled in Medicaid on 30sep2009                               74922
+   This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+   lotteried program, OHP Standard) on 30 September 2009.
+ 8     ohp_all_end_survey0m                 Enrolled in Medicaid on 30aug2008                               58405
+   This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+   lotteried program, OHP Standard) on 30 August 2008, the last day of the month of mean response to the
+   Initial Mail Survey.
+ 9     ohp_all_end_survey6m                 Enrolled in Medicaid on 28feb2009                               13024
+   This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the
+   lotteried program, OHP Standard) on 28 February 2009, the last day of the month of mean response to the
+   Six Month Mail Survey.
+10     ohp_all_end_inperson                 Enrolled in Medicaid on in-person interview date                20745
+   This variable is defined only for in-person survey participants: it takes a value of 1 if an individual was
+   enrolled in any Medicaid program (including the lotteried program, OHP Standard) on the date that the in-
+   person interview was completed.
+11     ohp_all_at_12m                       Enrolled in Medicaid at 12m survey return                       58405
+   This variable takes a value of 1 if an individual was enrolleed in any Medicaid program (including the
+   lotteried program, OHP Standard) on the date that he or she returned the 12m mail survey.
+                                            Number of months on Medicaid from matched notification
+12     ohp_all_mo_matchn_30sep2009                                                                          74922
+                                            date to 30sep2009
+   This variable gives the number of months an individual was on Medicaid between the matched notification
+   date and 30 September 2009.
+                                            Num. of months on Medicaid from first notification date
+13     ohp_all_mo_firstn_survey0m                                                                           58405
+                                            (10mar2008) to 30aug2008
+   This variable gives the number of months on Medicaid from the earliest notification date in the sample (10
+   March 2008) until the last day of the month of the average return date of the Initial Mail Survey.
+                                            Num. of months on Medicaid from first notification date
+14     ohp_all_mo_firstn_survey6m                                                                           13024
+                                            (10mar2008) to 28feb2009
+   This variable gives the number of months on Medicaid from the earliest notification date in the sample (10
+   March 2008) until the last day of the month of the average return date of the Six Month Mail Survey.
+
+                                             Number of months on Medicaid from 10mar2008 until in-
+15    ohp_all_mo_inperson                                                                                   20745
+                                             person interview date
+   This variable is defined only for in-person survey participants: it gives the number of months than an
+   individual was enrolled in any Medicaid program (including the lotteried program, OHP Standard) between
+   the earliest notification date in the sample (10 March 2008) and the in-person interview date.
+                                             Num. of months on Medicaid from 1st not. date
+16    ohp_all_mo_firstn_30sep2009                                                                           58405
+                                             (10mar2008) to 30sep2009
+   This variable gives the number of months on Medicaid from the earliest notification date in the sample (10
+   March 2008) until 30 September 2009.
+                                             Number of Months Enrolled in OHP all during 6 months
+17    ohp_all_mo_12m                                                                                        58405
+                                             prior to 12m survey return
+   This variable gives the number of months an individual was on Medicaid during the six months prior to the
+   date he or she returned the Twelve Month Mail survey.
+                                             Ever enrolled in OHP Standard from matched notification
+18    ohp_std_ever_matchn_30sep2009                                                                         74922
+                                             date to 30sep2009
+   This variable takes a value of 1 if the individual was enrolled in OHP Standard (the lotteried health care
+   program) between the matched notification date and 30 September 2009.
+                                             Ever enrolled in OHP Standard from 10mar2008 until in-
+19    ohp_std_ever_inperson                                                                                 20745
+                                             person interview date
+   This variable is defined only for in-person survey participants: it takes a value of 1 if an individual was ever
+   enrolled in OHP Standard between the earliest notification date (10 March 2008) and the date that the in-
+   person interview was completed.
+                                             Ever enrolled in OHP Standard from 1st not. date
+20    ohp_std_ever_firstn_30sep2009                                                                         58405
+                                             (10mar2008) to 30sep2009
+   This variable takes a value of 1 if the individual was enrolled in OHP Standard (the lotteried health care
+   program) between the earliest notification date (10 March 2008) and 30 September 2009.
+                                             Ever personally on SNAP between 01jan2007 and
+21    snap_ever_prenotify07                                                                                 74922
+                                             notification date
+                                             Ever personally on SNAP between 01jan2007 and
+22    snap_ever_presurvey12m                                                                                58405
+                                             10mar2008 if in 12m sample
+                                             Ever personally on SNAP between matched notification
+23    snap_ever_matchn_30sep2009                                                                            74922
+                                             date and 30sep2009
+                                             Ever personally on SNAP between 10mar2008 and
+24    snap_ever_firstn_survey12m                                                                            58405
+                                             30sep2009
+
+                                Total household benefits from SNAP case between
+25 snap_tot_hh_prenotify07                                                             74922
+                                01jan2007 and notification date
+                                Total household benefits from SNAP btween 1jan2007 and
+26 snap_tot_hh_presurvey12m                                                            58405
+                                10mar2008 if in 12m sampl
+                                Total household benefits from SNAP btween notification
+27 snap_tot_hh_30sep2009                                                               74922
+                                date and 30sep2009
+                                Total household benefits from SNAP btween 1st not date
+28 snap_tot_hh_firstn_survey12m                                                        58405
+                                (10mar2008) and 30sep2009
+                                Ever personally on TANF between 01jan2007 and
+29 tanf_ever_prenotify07                                                               74922
+                                notification date
+                                Ever personally on TANF between 01jan2007 and
+30 tanf_ever_presurvey12m                                                              58405
+                                10mar2008 if in 12m sample
+                                Ever personally on TANF between notification date and
+31 tanf_ever_matchn_30sep2009                                                          74922
+                                30sep2009
+                                Ever personally on TANF between 10mar2008 and
+32 tanf_ever_firstn_survey12m                                                          58405
+                                30sep2009
+                                Total household benefits from TANF case between
+33 tanf_tot_hh_prenotify07                                                             74922
+                                01jan2007 and notification date
+                                Total household benefits from TANF btween 1jan2007 and
+34 tanf_tot_hh_presurvey12m                                                            58405
+                                10mar2008 if in 12m sampl
+                                Total household benefits from TANF btween notification
+35 tanf_tot_hh_30sep2009                                                               74922
+                                date and 30sep2009
+                                Total household benefits from TANF btween 1st not date
+36 tanf_tot_hh_firstn_survey12m                                                        58405
+                                (10mar2008) and 30sep2009
+
+File : oregonhie_stateprograms_vars
+# person_id:         Scrambled individual identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 1-74922] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=37461.5 /-] [StdDev=21628.263 /-]
+# ohp_all_ever_matchn_30sep2009:                             Ever enrolled in Medicaid from matched notification date to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       NOT enrolled                                                                                  56909                                               76.0%
+ 1                       Enrolled                                                                                      18013                              24.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_ever_firstn_survey0m:                         Ever enrolled in Medicaid from first notification date (10mar2008) to 30aug2008
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       NOT enrolled                                                                                  48340                                               82.8%
+ 1                       Enrolled                                                                                      10065                       17.2%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_ever_firstn_survey6m:                         Ever enrolled in Medicaid from first notification date (10mar2008) to 28feb2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=13024 /-] [Invalid=61898 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       NOT enrolled                                                                                  10201                                               78.3%
+ 1                       Enrolled                                                                                       2823                           21.7%
+ Sysmiss                                                                                                               61898
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_ever_inperson:                   Ever enrolled in Medicaid from 10mar2008 until in-person interview date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=20745 /-] [Invalid=54177 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       NOT enrolled                                                                                  16942                                               81.7%
+ 1                       Enrolled                                                                                       3803                        18.3%
+ Sysmiss                                                                                                               54177
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_ever_firstn_30sep2009:                         Ever enrolled in Medicaid from 1st not. date (10mar2008) to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                    Percentage
+ 0                       NOT enrolled                                                                                  56563                                               75.5%
+ 1                       Enrolled                                                                                      18359                               24.5%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 10 -
+
+File : oregonhie_stateprograms_vars
+# ohp_all_end_30sep2009:                    Enrolled in Medicaid on 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  62764                                           83.8%
+ 1                       Enrolled                                                                                      12158                      16.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_end_survey0m:                    Enrolled in Medicaid on 30aug2008
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  48034                                           82.2%
+ 1                       Enrolled                                                                                      10371                        17.8%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_end_survey6m:                    Enrolled in Medicaid on 28feb2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=13024 /-] [Invalid=61898 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  10655                                           81.8%
+ 1                       Enrolled                                                                                       2369                        18.2%
+ Sysmiss                                                                                                               61898
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_end_inperson:                  Enrolled in Medicaid on in-person interview date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=20745 /-] [Invalid=54177 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  18338                                           88.4%
+ 1                       Enrolled                                                                                       2407                  11.6%
+ Sysmiss                                                                                                               54177
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_at_12m:               Enrolled in Medicaid at 12m survey return
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  53641                                           91.8%
+ 1                       Enrolled                                                                                       4764                8.2%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_matchn_30sep2009:                             Number of months on Medicaid from matched notification date to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-19] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+                                                                                                    - 11 -
+
+File : oregonhie_stateprograms_vars
+# ohp_all_mo_matchn_30sep2009:                             Number of months on Medicaid from matched notification date to 30sep2009
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      57034                                           76.1%
+ 1                       1 month                                                                                         467           0.6%
+ 2                       2 months                                                                                        425           0.6%
+ 3                       3 months                                                                                        502           0.7%
+ 4                       4 months                                                                                        498           0.7%
+ 5                       5 months                                                                                        463           0.6%
+ 6                       6 months                                                                                        587           0.8%
+ 7                       7 months                                                                                       1633            2.2%
+ 8                       8 months                                                                                        938           1.3%
+ 9                       9 months                                                                                        901           1.2%
+ 10                      10 months                                                                                       702           0.9%
+ 11                      11 months                                                                                       626           0.8%
+ 12                      12 months                                                                                      1099           1.5%
+ 13                      13 months                                                                                      2026            2.7%
+ 14                      14 months                                                                                      1996            2.7%
+ 15                      15 months                                                                                      1471            2.0%
+ 16                      16 months                                                                                       973           1.3%
+ 17                      17 months                                                                                       891           1.2%
+ 18                      18 months                                                                                       972           1.3%
+ 19                      19 months                                                                                       718           1.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_firstn_survey0m:                         Num. of months on Medicaid from first notification date (10mar2008) to 30aug2008
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      47479                                           81.3%
+ 1                       1 month                                                                                        1917             3.3%
+ 2                       2 months                                                                                       1250            2.1%
+ 3                       3 months                                                                                       1486            2.5%
+ 4                       4 months                                                                                       1441            2.5%
+ 5                       5 months                                                                                       1552            2.7%
+ 6                       6 months                                                                                       3280              5.6%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_firstn_survey6m:                         Num. of months on Medicaid from first notification date (10mar2008) to 28feb2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-12] [Missing=*]
+Statistics [NW/ W]                      [Valid=13024 /-] [Invalid=61898 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      10227                                           78.5%
+ 1                       1 month                                                                                          95           0.7%
+ 2                       2 months                                                                                        100           0.8%
+ 3                       3 months                                                                                         74           0.6%
+                                                                                                    - 12 -
+
+File : oregonhie_stateprograms_vars
+# ohp_all_mo_firstn_survey6m:                         Num. of months on Medicaid from first notification date (10mar2008) to 28feb2009
+ Value                   Label                                                                                         Cases                                Percentage
+ 4                       4 months                                                                                         97           0.7%
+ 5                       5 months                                                                                        293            2.2%
+ 6                       6 months                                                                                        413             3.2%
+ 7                       7 months                                                                                        415             3.2%
+ 8                       8 months                                                                                        233            1.8%
+ 9                       9 months                                                                                        254            2.0%
+ 10                      10 months                                                                                       184            1.4%
+ 11                      11 months                                                                                       170           1.3%
+ 12                      12 months                                                                                       469             3.6%
+ Sysmiss                                                                                                               61898
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_inperson:                   Number of months on Medicaid from 10mar2008 until in-person interview date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-31] [Missing=*]
+Statistics [NW/ W]                      [Valid=20745 /-] [Invalid=54177 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      16962                                           81.8%
+ 1                       1 month                                                                                          60           0.3%
+ 2                       2 months                                                                                         66           0.3%
+ 3                       3 months                                                                                         73           0.4%
+ 4                       4 months                                                                                         87           0.4%
+ 5                       5 months                                                                                         67           0.3%
+ 6                       6 months                                                                                        103           0.5%
+ 7                       7 months                                                                                        294           1.4%
+ 8                       8 months                                                                                        153           0.7%
+ 9                       9 months                                                                                        163           0.8%
+ 10                      10 months                                                                                       128           0.6%
+ 11                      11 months                                                                                       103           0.5%
+ 12                      12 months                                                                                       145           0.7%
+ 13                      13 months                                                                                       188           0.9%
+ 14                      14 months                                                                                       130           0.6%
+ 15                      15 months                                                                                       138           0.7%
+ 16                      16 months                                                                                       112           0.5%
+ 17                      17 months                                                                                       146           0.7%
+ 18                      18 months                                                                                       156           0.8%
+ 19                      19 months                                                                                       164           0.8%
+ 20                      20 months                                                                                       157           0.8%
+ 21                      21 months                                                                                       149           0.7%
+ 22                      22 months                                                                                       141           0.7%
+ 23                      23 months                                                                                       166           0.8%
+ 24                      24 months                                                                                       151           0.7%
+ 25                      25 months                                                                                       147           0.7%
+ 26                      26 months                                                                                       105           0.5%
+ 27                      27 months                                                                                       100           0.5%
+                                                                                                    - 13 -
+
+File : oregonhie_stateprograms_vars
+# ohp_all_mo_inperson:                   Number of months on Medicaid from 10mar2008 until in-person interview date
+ Value                   Label                                                                                         Cases                                Percentage
+ 28                      28 months                                                                                        79           0.4%
+ 29                      29 months                                                                                        67           0.3%
+ 30                      30 months                                                                                        38           0.2%
+ 31                      31 months                                                                                         7          0.0%
+ Sysmiss                                                                                                               54177
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_firstn_30sep2009:                         Num. of months on Medicaid from 1st not. date (10mar2008) to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-19] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      56683                                           75.7%
+ 1                       1 month                                                                                         514           0.7%
+ 2                       2 months                                                                                        422           0.6%
+ 3                       3 months                                                                                        459           0.6%
+ 4                       4 months                                                                                        487           0.7%
+ 5                       5 months                                                                                        470           0.6%
+ 6                       6 months                                                                                        626           0.8%
+ 7                       7 months                                                                                       1588            2.1%
+ 8                       8 months                                                                                        921            1.2%
+ 9                       9 months                                                                                        904           1.2%
+ 10                      10 months                                                                                       644           0.9%
+ 11                      11 months                                                                                       654           0.9%
+ 12                      12 months                                                                                      1114            1.5%
+ 13                      13 months                                                                                      1713             2.3%
+ 14                      14 months                                                                                      1444            1.9%
+ 15                      15 months                                                                                       991            1.3%
+ 16                      16 months                                                                                      1023            1.4%
+ 17                      17 months                                                                                       896           1.2%
+ 18                      18 months                                                                                       899           1.2%
+ 19                      19 months                                                                                      2470             3.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_mo_12m:                 Number of month on Medicaid during 6 months prior to 12m survey return
+Information                             [Type= discrete] [Format=numeric] [Range= 0-6] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0 months                                                                                      52819                                           90.4%
+ 1                       1 month                                                                                         258           0.4%
+ 2                       2 months                                                                                        261           0.4%
+ 3                       3 months                                                                                        271           0.5%
+ 4                       4 months                                                                                        244           0.4%
+ 5                       5 months                                                                                        253           0.4%
+ 6                       6 months                                                                                       4299               7.4%
+                                                                                                    - 14 -
+
+File : oregonhie_stateprograms_vars
+# ohp_all_mo_12m:                 Number of month on Medicaid during 6 months prior to 12m survey return
+ Value                   Label                                                                                         Cases                                Percentage
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_std_ever_matchn_30sep2009:                              Ever enrolled in OHP Standard from matched notification date to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  65263                                                   87.1%
+ 1                       Enrolled                                                                                       9659                   12.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_std_ever_inperson:                    Ever enrolled in OHP Standard from 10mar2008 until in-person interview date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=20745 /-] [Invalid=54177 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  18646                                                   89.9%
+ 1                       Enrolled                                                                                       2099                 10.1%
+ Sysmiss                                                                                                               54177
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_std_ever_firstn_30sep2009:                          Ever enrolled in OHP Standard from 1st not. date (10mar2008) to 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  65181                                                   87.0%
+ 1                       Enrolled                                                                                       9741                   13.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# snap_ever_prenotify07:                   Ever personally on SNAP between 01jan2007 and matched notification date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            30682                                         41.0%
+ 1                       Yes                                                                                           44240                                                   59.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# snap_ever_presurvey12m:                       Ever personally on SNAP between 01jan2007 and 10mar2008 if in 12m sample
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            25827                                             44.2%
+ 1                       Yes                                                                                           32578                                                   55.8%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                    - 15 -
+
+File : oregonhie_stateprograms_vars
+# snap_ever_matchn_30sep2009:                           Ever personally on SNAP between matched notification date and 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            29163                                       38.9%
+ 1                       Yes                                                                                           45759                                             61.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# snap_ever_firstn_survey12m:                         Ever personally on SNAP between 10mar2008 and 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            21389                                     36.6%
+ 1                       Yes                                                                                           37016                                             63.4%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# snap_tot_hh_prenotify07:                     Total household benefits from SNAP case between 01jan2007 and matched notificati
+Information                             [Type= continuous] [Format=numeric] [Range= 0-20745] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=1460.569 /-] [StdDev=1920.915 /-]
+# snap_tot_hh_presurvey12m:                         Total household benefits from SNAP btween 1jan2007 and 10mar2008 if in 12m sampl
+Information                             [Type= continuous] [Format=numeric] [Range= 0-16447] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-] [Mean=1159.893 /-] [StdDev=1607.898 /-]
+# snap_tot_hh_30sep2009:                    Total household benefits from SNAP btween notification date and 30sep2009
+Information                             [Type= continuous] [Format=numeric] [Range= 0-24078] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=1865.145 /-] [StdDev=2336.822 /-]
+# snap_tot_hh_firstn_survey12m:                          Total household benefits from SNAP btween 1st not date (10mar2008) and
+30sep2009
+Information                             [Type= continuous] [Format=numeric] [Range= 0-25120] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-] [Mean=2247.647 /-] [StdDev=2722.848 /-]
+# tanf_ever_prenotify07:                 Ever personally on TANF between 01jan2007 and matched notification date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            73623                                             98.3%
+ 1                       Yes                                                                                            1299           1.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# tanf_ever_presurvey12m:                      Ever personally on TANF between 01jan2007 and 10mar2008 if in 12m sample
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            57651                                             98.7%
+ 1                       Yes                                                                                             754           1.3%
+                                                                                                    - 16 -
+
+File : oregonhie_stateprograms_vars
+# tanf_ever_presurvey12m:                      Ever personally on TANF between 01jan2007 and 10mar2008 if in 12m sample
+ Value                   Label                                                                                         Cases                                Percentage
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# tanf_ever_matchn_30sep2009:                          Ever personally on TANF between notification date and 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            72577                                           96.9%
+ 1                       Yes                                                                                            2345            3.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# tanf_ever_firstn_survey12m:                        Ever personally on TANF between 10mar2008 and 30sep2009
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            56513                                           96.8%
+ 1                       Yes                                                                                            1892            3.2%
+ Sysmiss                                                                                                               16517
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# tanf_tot_hh_prenotify07:                    Total household benefits from TANF case between 01jan2007 and matched notificati
+Information                             [Type= continuous] [Format=numeric] [Range= 0-16031] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=63.793 /-] [StdDev=525.617 /-]
+# tanf_tot_hh_presurvey12m:                       Total household benefits from TANF btween 1jan2007 and 10mar2008 if in 12m sampl
+Information                             [Type= continuous] [Format=numeric] [Range= 0-11122] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-] [Mean=49.641 /-] [StdDev=434.265 /-]
+# tanf_tot_hh_30sep2009:                   Total household benefits from TANF btween notification date and 30sep2009
+Information                             [Type= continuous] [Format=numeric] [Range= 0-31104] [Missing=*]
+Statistics [NW/ W]                      [Valid=74922 /-] [Invalid=0 /-] [Mean=124.316 /-] [StdDev=795.744 /-]
+# tanf_tot_hh_firstn_survey12m:                         Total household benefits from TANF btween 1st not date (10mar2008) and
+30sep2009
+Information                             [Type= continuous] [Format=numeric] [Range= 0-32160] [Missing=*]
+Statistics [NW/ W]                      [Valid=58405 /-] [Invalid=16517 /-] [Mean=137.287 /-] [StdDev=873.329 /-]
+                                                                                                    - 17 -
+

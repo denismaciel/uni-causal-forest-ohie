@@ -1,0 +1,412 @@
+                   Codebook: Oregon Health Insurance Experiment, Patterns Variables
+This codebook lists all of the publicly available descriptive, emergency department, in-person survey, and
+Medicaid enrollment variables that are necessary to replicate the results presented in "The Effect of Medicaid
+Coverage on ED Use -- Further Evidence from Oregon's Experiment" by Finkelstein et al. (2016) (for data
+sources, please see the User Guide). The codebook has two sections. In the first section, variable name, label,
+and number of non-missing values are given. Where applicable, the text of the survey question and/or notes on
+variable construction are given immediately following the variable. In the second section, variable name, label,
+and any relevant survey question text are given along with descriptive statistics.
+  #             Variable Name                                    Variable Label                         Non-missing
+  1 person_id                             Scrambled individual identifier                                   24646
+  2 household_id                          Scrambled household identifier                                    24646
+                                          Any ED visit in days 1 to 180 after lottery notification (ED
+  3 any_visit_180p_180                                                                                      24646
+                                          Data)
+This variable is equal to 1 if an individual had any ED visits between 1-180 days after individual's lottery
+notification date (inclusive). It is otherwise equal to zero.
+                                          Any ED visit in days 181 to 360 after lottery notification
+  4 any_visit_180p_360                                                                                      24646
+                                          (ED Data)
+This variable is equal to 1 if an individual had any ED visits between 181-360 days after individual's lottery
+notification date (inclusive). It is otherwise equal to zero.
+                                          Any ED visit in days 361 to 540 after lottery notification
+  5 any_visit_180p_540                                                                                      24646
+                                          (ED Data)
+This variable is equal to 1 if an individual had any ED visits between 361-540 days after individual's lottery
+notification date (inclusive). It is otherwise equal to zero.
+                                          Any ED visit in days 541 to 720 after lottery notification
+  6 any_visit_180p_720                                                                                      24646
+                                          (ED Data)
+This variable is equal to 1 if an individual had any ED visits between 541-720 days after individual's lottery
+notification date (inclusive). It is otherwise equal to zero.
+  7 preperiod_any_visits                  Any ED visit prior to the first lottery draw (ED Data)            24646
+This variable is equal to 1 if an individual had any ED visits between December 28, 2006-March 8, 2008
+(inclusive). It is otherwise equal to zero. This variable is measured from a date range that is slightly different
+from what is being used for the pre-randomization indicator for any ED visit ("any_visit_pre_ed") in the
+previously resleased ED public use data set.
+                                                                                                                 1
+
+                                          Ever enrolled in Medicaid in days 1 to 180 after lottery
+  8 medicaid_all_180p_period_180                                                                              24646
+                                          notification
+This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the lotteried
+program, OHP Standard) between 1-180 days after individual's lottery notification date. This variable was used
+as the definition of insurance coverage in estimating the effect of Medicaid in non-parametric timing analysis.
+                                          Ever enrolled in Medicaid in days 181 to 360 after lottery
+  9 medicaid_all_180p_period_360                                                                              24646
+                                          notification
+This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the lotteried
+program, OHP Standard) between 181-360 days after individual's notification date. This variable was used as the
+definition of insurance coverage in estimating the effect of Medicaid in non-parametric timing analysis.
+                                          Ever enrolled in Medicaid in days 361 to 540 after lottery
+ 10 medicaid_all_180p_period_540                                                                              24646
+                                          notification
+This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the lotteried
+program, OHP Standard) between 361-540 days after individual's notification date. This variable was used as the
+definition of insurance coverage in estimating the effect of Medicaid in non-parametric timing analysis.
+                                          Ever enrolled in Medicaid in days 541 to 720 after lottery
+ 11 medicaid_all_180p_period_720                                                                              24646
+                                          notification
+This variable takes a value of 1 if an individual was enrolled in any Medicaid program (including the lotteried
+program, OHP Standard) between 541-720 days after individual's notification date. This variable was used as the
+definition of insurance coverage in estimating the effect of Medicaid in non-parametric timing analysis.
+                                          Lottery draw for those selected, 'matched' draw for those
+ 12 draw_lottery                                                                                              24646
+                                          not (see User Guide)
+                                          Latest visit date observed in the visit-level ED data (not
+ 13 visit_dt_max                                                                                              24646
+                                          individual-specific)
+This variable is not an individual-level variable (i.e. it has the the same value for all observations). It shows the
+last visit date observed in the visit-level ED data used in the timing analysis. This variable is only used to
+replicate numbers presented in the Appendix text that are not reported in any tables.
+                                          Earliest visit date observed in the visit-level ED data (not
+ 14 visit_dt_min                                                                                              24646
+                                          individual-specific)
+This variable is not an individual-level variable (i.e. it has the the same value for all observations). It shows the
+earliest visit date observed in the visit-level ED data used in the timing analysis. This variable is only used to
+replicate numbers presented in the Appendix text that are not reported in any tables.
+ 15 weight_720days                        Weight at 720 days after lottery notification                       24646
+ 16 weight_540days                        Weight at 540 days after lottery notification                       24646
+ 17 weight_360days                        Weight at 360 days after lottery notification                       24646
+                                                                                                                   2
+
+ 18 weight_180days                      Weight at 180 days after lottery notification                      24646
+ 19 treatment                           Treatment                                                          24646
+ 20 numhh_list                          Number of people in household on lottery list                      24646
+                                        Date notified of selection - only defined for the treatment
+ 21 dt_notify_treat                                                                                         9626
+                                        group
+ 22 birthyear_list                      Birth year: lottery list data                                      24646
+ 23 female_list                         Female: lottery list data                                          24646
+                                        Individual requested english-language materials: lottery list
+ 24 english_list                                                                                           24646
+                                        data
+ 25 have_phone_list                     Gave a phone number on lottery sign up: lottery list data          24646
+ 26 pobox_list                          Gave a PO Box as an address: lottery list data                     24646
+ 27 first_day_list                      Signed up for lottery list on first day: lottery list data         24646
+ 28 self_list                           Individual signed him or herself up for the lottery list           24646
+                                        Ever enrolled in Medicaid from 10mar2008 until in-person
+ 29 ohp_all_ever_inperson                                                                                  24646
+                                        interview date
+This variable is defined only for in-person survey participants: it takes a value of 1 if an individual was enrolled
+in any Medicaid program (including the lotteried program, OHP Standard) between the earliest notification date
+in the sample (10 March 2008) and the in-person interview date. This variable was used as the definition of
+insurance coverage in estimating the effect of Medicaid in the joint outcomes analysis.
+ 30 dt_completed_inp                    Date interview was completed (In-person Survey)                    10178
+This variable is defined only for in-person survey participants.
+                                        Total weight in inperson survey (study end date: OCT 13,
+ 31 weight_total_inp                                                                                       17092
+                                        2010) (Inperson Survey)
+ 32 sample_inp_resp                     Responded to in-person survey (In-person Survey)                   17092
+                                                                                                                 3
+
+ 33 doc_any_incl_probe_inp              Any doctor visits in the past 12 months (In-person Survey)          10156
+This variable is defined only for in-person survey participants: it takes a value of 1 if the interview subject gave
+a non-zero answer to question 150.
+Q150. In the last 12 months, how many times have you seen a doctor or other health care professional at a
+doctor's office, a clinic, or at home?
+ 34 ed_any_incl_probe_inp               Any ED visits in the past 12 months (In-person Survey)              10156
+This variable is defined only for in-person survey participants: it takes a value of 1 if the interview subject gave
+a non-zero answer to question 155.
+Q155. In the last 12 months, how many times have you gone to an emergency room, or urgent care clinic?
+                                        Any ED visit in 12 months prior to inperson survey
+ 35 any_inp_match_ed                                                                                        10178
+                                        response (ED Data)
+This variable is defined only for in-person survey participants: it is equal to 1 if an individual had an ED visit
+observed in the emergency department data in the 12 months prior to his or her in-person interview date, and
+zero if an individual did not have an ED visit.
+                                                                                                                  4
+
+File : oregonhie_patterns_vars
+# person_id:         Scrambled individual identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 5-74920] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=37523.537 /-] [StdDev=21582.741 /-]
+# household_id:            Scrambled household identifier
+Information                             [Type= continuous] [Format=numeric] [Range= 100005-174920] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=140038.22 /-] [StdDev=21408.971 /-]
+# any_visit_180p_180:                 Any ED visit in days 1 to 180 after lottery notification (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20459                                           83.0%
+ 1                       Yes                                                                                            4187                       17.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_visit_180p_360:                 Any ED visit in days 181 to 360 after lottery notification (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20525                                           83.3%
+ 1                       Yes                                                                                            4121                       16.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_visit_180p_540:                 Any ED visit in days 361 to 540 after lottery notification (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20594                                           83.6%
+ 1                       Yes                                                                                            4052                       16.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# any_visit_180p_720:                 Any ED visit in days 541 to 720 after lottery notification (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            20809                                           84.4%
+ 1                       Yes                                                                                            3837                     15.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# preperiod_any_visits:                Any ED visit prior to the first lottery draw (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                            16939                                           68.7%
+ 1                       Yes                                                                                            7707                                31.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                                                                                         5
+
+File : oregonhie_patterns_vars
+# medicaid_all_180p_period_180:                          Ever enrolled in Medicaid in days 1 to 180 after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19624                                              79.6%
+ 1                       Yes                                                                                            5022                          20.4%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# medicaid_all_180p_period_360:                          Ever enrolled in Medicaid in days 181 to 360 after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19395                                              78.7%
+ 1                       Yes                                                                                            5251                           21.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# medicaid_all_180p_period_540:                          Ever enrolled in Medicaid in days 361 to 540 after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19767                                              80.2%
+ 1                       Yes                                                                                            4879                          19.8%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# medicaid_all_180p_period_720:                          Ever enrolled in Medicaid in days 541 to 720 after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 0                       No                                                                                            19197                                              77.9%
+ 1                       Yes                                                                                            5449                            22.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# draw_lottery:            Lottery draw for those selected, 'matched' draw for those not (see User Guide)
+Information                             [Type= discrete] [Format=numeric] [Range= 1-8] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                  Percentage
+ 1                                                                                                                      2473                                    10.0%
+ 2                                                                                                                      2477                                    10.1%
+ 3                                                                                                                      2560                                     10.4%
+ 4                                                                                                                      2489                                    10.1%
+ 5                                                                                                                      2486                                    10.1%
+ 6                                                                                                                      4823                                             19.6%
+ 7                                                                                                                      4892                                              19.8%
+ 8                                                                                                                      2446                                    9.9%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                                                                                            6
+
+File : oregonhie_patterns_vars
+# visit_dt_max:           Latest visit date observed in the visit-level ED data (not individual-specific)
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 2010-09-01                                                                                                            24646                                             100.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# visit_dt_min:           Earliest visit date observed in the visit-level ED data (not individual-specific
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 2006-12-28                                                                                                            24646                                             100.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# weight_720days:               Weight at 720 days after lottery notification
+Information                             [Type= continuous] [Format=numeric] [Range= 0-12.3463182449341] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=1 /-] [StdDev=0.573 /-]
+# weight_540days:               Weight at 540 days after lottery notification
+Information                             [Type= continuous] [Format=numeric] [Range= 0-1.39599299430847] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=0.999 /-] [StdDev=0.136 /-]
+# weight_360days:               Weight at 360 days after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 1-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                                                                                                                     24646                                             100.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# weight_180days:               Weight at 180 days after lottery notification
+Information                             [Type= discrete] [Format=numeric] [Range= 1-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                                                                                                                     24646                                             100.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# treatment:         Treatment
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Not selected                                                                                  15020                                             60.9%
+ 1                       Selected                                                                                       9626                                       39.1%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# numhh_list:           Number of people in household on lottery list
+Information                             [Type= discrete] [Format=numeric] [Range= 1-3] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+                                                                                                                                                                           7
+
+File : oregonhie_patterns_vars
+# numhh_list:           Number of people in household on lottery list
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                       signed self up                                                                                19643                                                  79.7%
+ 2                       signed self up + 1 additional person                                                           4951                          20.1%
+ 3                       signed self up + 2 additional people                                                             52           0.2%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# dt_notify_treat:            Date notified of selection - only defined for the treatment group
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=9626 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 2008-03-10                                                                                                             1013                                   10.5%
+ 2008-04-07                                                                                                             1005                                   10.4%
+ 2008-04-16                                                                                                             1016                                   10.6%
+ 2008-05-09                                                                                                             1005                                   10.4%
+ 2008-06-11                                                                                                              934                                 9.7%
+ 2008-07-14                                                                                                             1851                                                 19.2%
+ 2008-08-12                                                                                                             1888                                                  19.6%
+ 2008-09-11                                                                                                              914                                 9.5%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# birthyear_list:           Birth year: lottery list data
+Information                             [Type= continuous] [Format=numeric] [Range= 1945-1988] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-] [Mean=1968.399 /-] [StdDev=12.045 /-]
+# female_list:         Female: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0: Male                                                                                       11172                                           45.3%
+ 1                       1: Female                                                                                     13474                                                  54.7%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# english_list:         Individual requested english-language materials: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Requested materials in language other than english                                             3335                    13.5%
+ 1                       Requested English materials                                                                   21311                                                  86.5%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# have_phone_list:               Gave a phone number on lottery sign up: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Did NOT give phone number                                                                      3209                   13.0%
+ 1                       Gave Phone Number                                                                             21437                                                  87.0%
+                                                                                                                                                                                8
+
+File : oregonhie_patterns_vars
+# have_phone_list:               Gave a phone number on lottery sign up: lottery list data
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# pobox_list:        Gave a PO Box as an address: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       0: Not POBOX                                                                                  23996                                               97.4%
+ 1                       1: POBOX                                                                                        650            2.6%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# first_day_list:          Signed up for lottery list on first day: lottery list data
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Did NOT sign up for lottery list on first day                                                 22358                                               90.7%
+ 1                       Signed up for lottery list on first day                                                        2288                 9.3%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# self_list:     Individual signed him or herself up for the lottery list
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Did NOT sign self up                                                                           2511                 10.2%
+ 1                       Signed self up                                                                                22135                                               89.8%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ohp_all_ever_inperson:                   Ever enrolled in Medicaid from 10mar2008 until in-person interview date
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=24646 /-] [Invalid=0 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       NOT enrolled                                                                                  21452                                               87.0%
+ 1                       Enrolled                                                                                       3194                   13.0%
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# dt_completed_inp:                 Date interview was completed (In-person Survey)
+Information                             [Type= discrete] [Format=character] [Missing=*]
+Statistics [NW/ W]                      [Valid=10178 /-]
+# weight_total_inp:               Total weight in inperson survey (study end date: OCT 13, 2010) (Inperson Survey)
+Information                             [Type= continuous] [Format=numeric] [Range= 0-52.210750579834] [Missing=*]
+Statistics [NW/ W]                      [Valid=17092 /-] [Invalid=7554 /-] [Mean=0.999 /-] [StdDev=1.16 /-]
+# sample_inp_resp:                Responded to in-person survey (In-person Survey)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=17092 /-] [Invalid=7554 /-]
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       Non Respondent                                                                                 6914                                         40.5%
+                                                                                                                                                                             9
+
+File : oregonhie_patterns_vars
+# sample_inp_resp:                Responded to in-person survey (In-person Survey)
+ Value                   Label                                                                                         Cases                                Percentage
+ 1                       Respondent                                                                                    10178                                               59.5%
+ Sysmiss                                                                                                                7554
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# doc_any_incl_probe_inp:                     Any doctor visits in the past 12 months (In-person Survey)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=10156 /-] [Invalid=14490 /-]
+Pre-question                            We've talked about the medical care you've received in the last 12 months. Now I'd like to figure out how much it cost you to
+                                        get that care. When we talk about your costs, I'm thinking about money you have paid yourself, out of your own pocket, or
+                                        that friends or relatives have helped you pay. I'm not including money that an insurance company or some other organization
+                                        paid on your behalf. I'm also not including money that you owe or that you put on your credit card, but haven't paid yet -- I'll
+                                        ask about that later. Also, as usual, I'm not including dental or routine vision care
+Literal question                        Q150. In the last 12 months, about how many times have you seen a doctor or other health care professional at a
+                                        doctor's office, a clinic, or at home? I'm thinking of regular doctor visits, not hospital stays, emergency room visits,
+                                        surgery, or dental care -- I'll ask about those later.
+                                        Q151. If you were giving your best guess, would you say it was...
+                                        -Zero times
+                                        -Once, OR
+                                        -More than once?
+                                        -DON'T KNOW
+                                        -PREFER NOT TO ANSWER
+Interviewer's instructions              Ask question 151 if survey respondent answers "don't know" to question 150.
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                             3346                                 32.9%
+ 1                       Yes                                                                                            6810                                               67.1%
+ Sysmiss                                                                                                               14490
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+# ed_any_incl_probe_inp:                    Any ED visits in the past 12 months (In-person Survey)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=10156 /-] [Invalid=14490 /-]
+Pre-question                            We've talked about the medical care you've received in the last 12 months. Now I'd like to figure out how much it cost you to
+                                        get that care. When we talk about your costs, I'm thinking about money you have paid yourself, out of your own pocket, or
+                                        that friends or relatives have helped you pay. I'm not including money that an insurance company or some other organization
+                                        paid on your behalf. I'm also not including money that you owe or that you put on your credit card, but haven't paid yet -- I'll
+                                        ask about that later. Also, as usual, I'm not including dental or routine vision care
+Literal question                        Q155. In the last 12 months, about how many times have you gone to an emergency room or urgent care clinic?
+                                        Q156. If you were giving your best guess, would you say it was...
+                                        -Zero times
+                                        -Once, OR
+                                        -More than once?
+                                        -DON'T KNOW
+                                        -PREFER NOT TO ANSWER
+Interviewer's instructions              Ask question 156 if survey respondent answers "don't know" to question 155.
+ Value                   Label                                                                                         Cases                                Percentage
+ 0                       No                                                                                             6033                                               59.4%
+ 1                       Yes                                                                                            4123                                         40.6%
+ Sysmiss                                                                                                               14490
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                                                                                           10
+
+File : oregonhie_patterns_vars
+# any_inp_match_ed:                  Any ED visit in 12 months prior to inperson survey response (ED Data)
+Information                             [Type= discrete] [Format=numeric] [Range= 0-1] [Missing=*]
+Statistics [NW/ W]                      [Valid=10178 /-] [Invalid=14468 /-]
+ Value                   Label                                                                                         Cases                                   Percentage
+ 0                       No                                                                                             7370                                              72.4%
+ 1                       Yes                                                                                            2808                                27.6%
+ Sysmiss                                                                                                               14468
+Warning: these figures indicate the number of cases found in the data file. They cannot be interpreted as summary statistics of the population of interest.
+                                                                                                                                                                          11
+

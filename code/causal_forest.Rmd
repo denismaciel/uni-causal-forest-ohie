@@ -139,7 +139,7 @@ stopifnot(
 Train vs test and preprocesing
 
 ```{r}
-TRAIN_PROPORTION <- 0.3
+TRAIN_PROPORTION <- 0.8
 ind <- sample(1:nrow(df), round(TRAIN_PROPORTION*nrow(df)), replace = FALSE)
 
 train <- df[ind, ]
@@ -153,7 +153,40 @@ prepped_rec <- prep(rec, train)
 
 X_train <- juice(prepped_rec)
 X_test <- bake(prepped_rec, new_data = test)
+
+
+X_train$num_visit_cens_ed <- NULL
+X_test$num_visit_cens_ed <- NULL
+
 ```
+
+
+
+```{r}
+data_dict <- map(
+  fs::dir_ls("data/OHIE_Public_Use_Files/OHIE_Documentation/txt/"),
+  readLines
+) %>% 
+  unlist()
+
+names(data_dict) <- NULL
+
+end <- map(names(train), ~ stringr::str_detect(data_dict, .x)) %>% 
+  map(~ data_dict[.x]) %>% 
+  set_names(names(train)) %>% 
+  map(~ paste0(.x, collapse = "\n")) %>% 
+  as_tibble() %>% 
+  gather
+
+write_csv(end, "data/variable_code_meaning.csv")
+
+read_csv("data/variable_code_meaning_clean.csv") %>% 
+  xtable::xtable(
+    caption = "Variables used to train the causal forest", 
+    label = "tab:features"
+)
+```
+
 
 ## Fit Model
 
@@ -182,16 +215,29 @@ pred_df <- predict(cf,
 Estimated treatment effects ranked
 
 ```{r}
-pred_df %>% 
+p_rank <- pred_df %>% 
   arrange(predictions) %>% 
   mutate(idx = row_number()) %>% 
   ggplot(aes(idx, predictions)) +
   geom_point() +
+  geom_hline(yintercept = 0, color = "red") +
   labs(x = "Rank",
        y = "Estimated Treatment Effect") +
-  expand_limits(y = c(-5, 5)) +
-  theme_light()
+  # expand_limits(y = c(-5, 5)) +
+  theme_light() 
+
+ggsave(plot = p_rank, here::here("figs", "ete_p_rank.png"))
+p_rank 
 ```
+
+Max and min causal effect
+
+```{r}
+max(pred_df$predictions)
+min(pred_df$predictions)
+summary(pred_df$predictions)
+```
+
 
 Estimated treatment effect with confidence intervals
 
@@ -212,19 +258,33 @@ plot_htes <- function(cf_preds, z = 1.96) {
 #   plot_htes(cf_preds =., ci = TRUE)
 
 pred_df_sampled <- sample_n(pred_df, 200)
-plot_htes(pred_df_sampled)
+p_rank_interval <- plot_htes(pred_df_sampled)
+ggsave(plot = p_rank_interval, here::here("figs", "ete_p_rank_interval.png"))
+
+p_rank_interval
 ```
 
+Histogram (geom_col)
+
 ```{r}
-pred_df %>% 
+data <- pred_df %>% 
   bind_cols(test) %>% 
-  mutate(bins = cut(predictions, breaks = seq(-5, 5, 0.5))) %>% 
-  count(bins, medicaid) %>% 
+  mutate(bins = cut(predictions, breaks = seq(-10, 10, 0.2))) %>% 
+  count(bins)
+
+zero_point <- which(data$bins == "(0,0.2]") - .5
+
+p_hist <- data %>% 
   ggplot(aes(bins, n)) +
   # ggplot(aes(bins, n, fill = factor(medicaid))) +
   geom_col() +
+  geom_vline(xintercept = zero_point, color = "red") +
   labs(x = "Bins", y = "") +
-  theme_light() 
+  theme_light() + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+p_hist
+ggsave(plot = p_hist, here::here("figs", "ete_histogram.png"))
 ```
 
 Feature importance
@@ -237,5 +297,16 @@ feat_importance <- variable_importance(cf) %>%
   arrange(desc(importance))
 
 feat_importance
+
+write_csv(feat_importance, here::here("figs", "feat_importance.csv"))
+
+feat_importance %>% 
+  mutate("Importance" = scales::percent(feat_importance$importance, accuracy = 0.01)) %>% 
+  select(
+    Feature = feature,
+    Importance
+  ) %>% 
+  filter(row_number() %in% 1:10) %>% 
+  xtable::xtable(label = "tab:feature_importance")
 ```
 

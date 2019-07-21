@@ -1,0 +1,152 @@
+---
+title: "Causal Tree"
+author: "Denis Maciel"
+date: "7/13/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+source(here::here("code", "load_datasets.R"))
+
+load_datasets()
+```
+
+
+```{r}
+# Number of household in the list
+eme_visits <- emergency %>% 
+  left_join(descriptive %>% select(person_id, treatment, numhh_list)) %>% 
+  left_join(state_programs %>% select(person_id, medicaid = ohp_all_ever_firstn_30sep2009)) %>% 
+  mutate(n_household = dplyr::case_when(
+    numhh_list == "signed self up" ~ 0L,
+    numhh_list == "signed self up + 1 additional person" ~ 1L,
+    numhh_list == "signed self up + 2 additional people" ~ 2L
+  ))
+
+# Treatment binary and numeric
+eme_visits <- eme_visits %>% 
+  mutate(treat_numeric = case_when(
+    treatment == "Selected" ~ 1L,
+    treatment == "Not selected" ~ 0L
+  ))
+
+eme_visits <- eme_visits %>% 
+  mutate(any_visit_ed = case_when(
+    any_visit_ed == "Yes" ~ 1L,
+    any_visit_ed == "No" ~ 0L
+  ))
+
+eme_visits <- eme_visits %>% 
+  mutate(medicaid = case_when(
+    medicaid == "Enrolled" ~ 1L,
+    medicaid == "NOT enrolled" ~ 0L
+  ))
+
+stopifnot(
+  all(!is.na(eme_visits$n_household))
+)
+
+stopifnot(
+  all(!is.na(eme_visits$treat_numeric))
+)
+
+stopifnot(
+  all(!is.na(eme_visits$medicaid))
+)
+
+```
+
+```{r}
+ind <- !stringr::str_detect(colnames(eme_visits), "_ed") |
+  stringr::str_detect(colnames(eme_visits), "pre_ed") |
+  stringr::str_detect(colnames(eme_visits), "any_visit_ed|num_visit_cens_ed")
+  
+# glimpse(eme_visits)
+# glimpse(eme_visits[, ind])
+
+eme_visits <- eme_visits[, which(ind)]
+glimpse(eme_visits)
+```
+
+```{r}
+library(causalTree)
+
+selectfit <- glm(treatment ~ n_household, data = eme_visits, family=binomial)
+propensity <- predict(selectfit, type = "response")
+```
+
+Number of visits to emergency department
+
+```{r}
+X <- eme_visits %>% 
+  select(-person_id, -medicaid, -treatment, -treat_numeric, -any_visit_ed)
+
+ct <- causalTree::causalTree(
+  num_visit_cens_ed ~ .,
+  data = X, 
+	treatment = eme_visits$treat_numeric,
+	weights = 1/propensity,
+	minsize = 2000,
+	split.Rule = "CT",
+	cv.option = "CT",
+	split.Honest=TRUE
+)
+
+rpart.plot(ct)
+```
+
+
+## Causal Forest with 2LSLS
+
+Number of visits with 2SLS
+
+```{r}
+first_stage <- lm(data = eme_visits, formula = medicaid ~ treat_numeric)
+
+# add fitted values to dataframe
+eme_visits$medicaid_hat <- first_stage$fitted.values
+```
+
+Check if estimation of first node is correct
+
+```{r}
+
+
+```
+
+
+```{r}
+eme_visits_no_na <- drop_na(eme_visits)
+X <- eme_visits_no_na %>% 
+  select(-person_id, -medicaid, -treatment, -treat_numeric, -any_visit_ed)
+
+X$treatment <- eme_visits_no_na$treatment
+```
+
+```{r}
+library(recipes)
+
+rec <- recipe(num_visit_cens_ed ~ ., data = X) %>% 
+  # step_center(all_predictors()) %>% 
+  step_dummy(all_nominal())
+
+prepped_red <- prep(rec, X)
+
+X <- juice(prepped_red)
+```
+
+
+
+```{r}
+library(grf)
+# X %>%   map(function(x) sum(is.na(x)))
+cf <- causal_forest(X, Y = eme_visits_no_na$num_visit_cens_ed, W = eme_visits_no_na$treat_numeric, honesty = TRUE)
+
+tree <- get_tree(cf, 1)
+```

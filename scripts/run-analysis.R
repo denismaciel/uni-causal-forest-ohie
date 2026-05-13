@@ -15,7 +15,8 @@ parse_args <- function(args) {
     seed = 123L,
     trees = 2000L,
     train_proportion = 0.8,
-    output_dir = "figs"
+    output_dir = "figs",
+    data_path = "data/analysis/model-data.parquet"
   )
 
   for (arg in args) {
@@ -27,6 +28,8 @@ parse_args <- function(args) {
       values$train_proportion <- as.numeric(sub("--train-proportion=", "", arg))
     } else if (startsWith(arg, "--output-dir=")) {
       values$output_dir <- sub("--output-dir=", "", arg)
+    } else if (startsWith(arg, "--data-path=")) {
+      values$data_path <- sub("--data-path=", "", arg)
     } else {
       stop("Unknown argument: ", arg, call. = FALSE)
     }
@@ -38,8 +41,7 @@ parse_args <- function(args) {
 main <- function() {
   args <- parse_args(commandArgs(trailingOnly = TRUE))
 
-  datasets <- load_datasets()
-  analysis_data <- prepare_analysis_data(datasets)
+  analysis_data <- load_analysis_data(args$data_path)
   model_data <- prepare_model_data(
     analysis_data,
     train_proportion = args$train_proportion,

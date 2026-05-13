@@ -41,6 +41,7 @@
               here
               knitr
               patchwork
+              arrow
               rmarkdown
               recipes
               scales
@@ -81,6 +82,17 @@
                 set -euo pipefail
                 export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
                 make analysis
+              ''
+            );
+          };
+
+          data = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "prepare-causal-forest-ohie-data" ''
+                set -euo pipefail
+                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
+                make data
               ''
             );
           };

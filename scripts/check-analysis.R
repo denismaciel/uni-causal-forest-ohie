@@ -17,10 +17,11 @@ required_outputs <- c(
 )
 
 datasets <- load_datasets()
-analysis_data <- prepare_analysis_data(datasets)
+analysis_data <- load_analysis_data()
 model_data <- prepare_model_data(analysis_data, seed = 123)
 
 stopifnot(
+  identical(analysis_data, prepare_analysis_data(datasets)),
   nrow(analysis_data) > 0,
   nrow(model_data$train) > 0,
   nrow(model_data$test) > 0,

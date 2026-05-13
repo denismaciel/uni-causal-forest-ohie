@@ -1,6 +1,9 @@
 PAPER_PDF := artifacts/causal-forest-ohie-paper.pdf
 
-.PHONY: analysis check-analysis compile-pdf paper clean count-words
+.PHONY: analysis check-analysis data compile-pdf paper clean count-words
+
+data:
+	Rscript scripts/prepare-data.R
 
 analysis:
 	Rscript scripts/run-analysis.R

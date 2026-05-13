@@ -3,6 +3,9 @@
 code/ORhealth.R
 .Rhistory
 *.html
+data/analysis/
+data/interim/
+data/transformed/
 
 paper/*.aux
 paper/*.bbl

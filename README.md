@@ -8,6 +8,7 @@ text in one reproducible project.
 Regenerate analysis outputs:
 
 ```sh
+nix run .#data
 nix run .#analysis
 ```
 
@@ -22,6 +23,10 @@ Build the paper PDF:
 ```sh
 nix run .#paper
 ```
+
+Raw Stata files are kept under `data/OHIE_Public_Use_Files/OHIE_Data/`.
+`nix run .#data` converts them into Parquet under `data/interim/parquet/` and
+builds `data/analysis/model-data.parquet`, which is the analysis input.
 
 The paper is written under `paper/`, figures are generated under `figs/`, and
 the compiled PDF is written to `artifacts/causal-forest-ohie-paper.pdf`.

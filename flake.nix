@@ -62,6 +62,8 @@
         let
           pkgs = import nixpkgs { inherit system; };
           tex = self.packages.${system}.tex;
+          r = self.packages.${system}.r;
+          paperPdf = "artifacts/causal-forest-ohie-paper.pdf";
         in
         {
           paper = {
@@ -69,8 +71,14 @@
             program = toString (
               pkgs.writeShellScript "build-causal-forest-ohie-paper" ''
                 set -euo pipefail
-                export PATH="${tex}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
-                make paper
+                export PATH="${tex}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+                latexmk -C paper/main.tex
+                rm -f paper/main.run.xml
+                mkdir -p artifacts
+                cd paper
+                latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+                cd ..
+                cp paper/main.pdf ${paperPdf}
               ''
             );
           };
@@ -80,8 +88,8 @@
             program = toString (
               pkgs.writeShellScript "run-causal-forest-ohie-analysis" ''
                 set -euo pipefail
-                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
-                make analysis
+                export PATH="${r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+                Rscript scripts/run-analysis.R
               ''
             );
           };
@@ -91,8 +99,8 @@
             program = toString (
               pkgs.writeShellScript "prepare-causal-forest-ohie-data" ''
                 set -euo pipefail
-                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
-                make data
+                export PATH="${r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+                Rscript scripts/prepare-data.R
               ''
             );
           };
@@ -102,8 +110,30 @@
             program = toString (
               pkgs.writeShellScript "check-causal-forest-ohie-analysis" ''
                 set -euo pipefail
-                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
-                make check-analysis
+                export PATH="${r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+                Rscript scripts/check-analysis.R
+              ''
+            );
+          };
+
+          notebooks = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "render-causal-forest-ohie-notebooks" ''
+                set -euo pipefail
+                export PATH="${r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+                Rscript scripts/render-notebooks.R
+              ''
+            );
+          };
+
+          count-words = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "count-causal-forest-ohie-paper-words" ''
+                set -euo pipefail
+                export PATH="${pkgs.poppler-utils}/bin:${pkgs.coreutils}/bin:$PATH"
+                pdftotext ${paperPdf} - | wc -w
               ''
             );
           };

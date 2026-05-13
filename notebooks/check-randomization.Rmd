@@ -12,9 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 
-source(here::here("code", "load_datasets.R"))
-
-load_datasets()
+source(file.path("R", "load-data.R"))
+list2env(load_datasets(), envir = globalenv())
 ```
 
 We only got data on hospital vistis about 24646 participants.
@@ -101,5 +100,3 @@ knitr::knit_exit()
 ```{r}
 xtable::xtable(all)
 ```
-
-

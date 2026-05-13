@@ -12,9 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 
-source(here::here("code", "load_datasets.R"))
-
-load_datasets()
+source(file.path("R", "load-data.R"))
+list2env(load_datasets(), envir = globalenv())
 ```
 
 

@@ -1,11 +1,16 @@
 .DS_Store
+*.Rproj
 .Rproj.user
-code/ORhealth.R
 .Rhistory
 *.html
+notebooks/*.md
+notebooks/*.pdf
 data/analysis/
 data/interim/
 data/transformed/
+artifacts/rendered-analysis/
+artifacts/bibliography-audit.md
+compiled_analysis/
 
 paper/*.aux
 paper/*.bbl

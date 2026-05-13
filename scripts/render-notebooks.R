@@ -1,10 +1,15 @@
 library(magrittr)
 
 rmd_files <- fs::dir_ls(
-  here::here("code"), regexp =  ".Rmd$"
+  "notebooks", regexp =  ".Rmd$"
 )
 
-DONT_COMPILE <- c("check_randomization","analysis")
+DONT_COMPILE <- c(
+  "causal-forest",
+  "causal-tree",
+  "check-randomization",
+  "exploratory-analysis"
+)
 
 ind <- mapply(DONT_COMPILE, FUN = function(x) stringr::str_detect(rmd_files, x)) %>%
   rowSums() %>%
@@ -13,9 +18,11 @@ ind <- mapply(DONT_COMPILE, FUN = function(x) stringr::str_detect(rmd_files, x))
 rmd_files <- rmd_files[!ind]
 
 get_target_dirs <- function(file_names) {
-  file_names %>%
-    stringr::str_replace("(?<=/)code(?=/)", "compiled_analysis") %>%
-    stringr::str_remove("\\.Rmd")
+  notebook_names <- file_names |>
+    fs::path_ext_remove() |>
+    fs::path_file()
+
+  file.path("artifacts", "rendered-analysis", notebook_names)
 }
 
 target_dirs <- get_target_dirs(rmd_files)
@@ -31,7 +38,8 @@ for (i in 1:nrow(l)) {
   rmarkdown::render(
     input = l[i, ]$rmd_files,
     output_dir = l[i, ]$target_dirs,
-    output_file = "README.md"
+    output_file = "README.md",
+    knit_root_dir = getwd()
   )
 }
 
@@ -46,5 +54,3 @@ remove_absolute_path <- function(target_dir) {
 }
 
 purrr::walk(target_dirs, remove_absolute_path)
-
-

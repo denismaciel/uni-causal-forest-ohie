@@ -1,0 +1,65 @@
+\appendix
+
+% literature
+\newpage
+% \addcontentsline{toc}{section}{References}
+% \bibliography{../content/refs/references}
+
+\printbibliography
+
+% figures (not mandatory)
+\newpage
+\section{Tables}
+
+\begin{table}[ht]
+  {
+    \tiny
+    \centering
+  \begin{tabular}{rll}
+    \hline
+   & Code & Meaning \\ 
+    \hline
+  1 & age\_2009 & Age in 2009 \\ 
+    2 & any\_abdo\_pre\_ed & Any ED visit for abdominal pain, pre-randomization \\ 
+    3 & any\_acsc\_pre\_ed & Any ambulatory case sensitive ED visit, pre-randomization \\ 
+    4 & any\_back\_pre\_ed & Any ED visit for back pain, pre-randomization \\ 
+    5 & any\_chron\_pre\_ed & Any ED visit for chronic condition, pre-randomization \\ 
+    6 & any\_depres\_pre\_ed & Any ED visit for mood disorders, pre-randomization \\ 
+    7 & any\_head\_pre\_ed & Any ED visit for headache, pre-randomization \\ 
+    8 & any\_heart\_pre\_ed & Any ED visit for chest pain, pre-randomization \\ 
+    9 & any\_hiun\_pre\_ed & Any ED visit to a high uninsured volume hospital, pre-randomization \\ 
+    10 & any\_hosp\_pre\_ed & Any ED visit resulting in a hospitalization, pre-randomization \\ 
+    11 & any\_inj\_pre\_ed & Any ED visit for injury, pre-randomization \\ 
+    12 & any\_loun\_pre\_ed & Any ED visit to a low uninsured volume hospital, pre-randomization \\ 
+    13 & any\_off\_pre\_ed & Any weekend or nighttime ED visits, prerandomization \\ 
+    14 & any\_on\_pre\_ed & Any weekday daytime ED visit, pre-randomization \\ 
+    15 & any\_out\_pre\_ed & Any Outpatient ED visit, pre-randomization \\ 
+    16 & any\_psysub\_pre\_ed & Any ED visit for psych conditions/substance abuse, pre-randomization \\ 
+    17 & any\_skin\_pre\_ed & Any ED visit for skin conditions, pre-randomization \\ 
+    18 & any\_visit\_pre\_ed & Any ED visit, pre-randomization \\ 
+    19 & charg\_tot\_pre\_ed & Sum of total charges, pre-randomization \\ 
+    20 & ed\_charg\_tot\_pre\_ed & Sum of total ED charges, pre-randomization \\ 
+    21 & english\_list & Individual requested english-language materials: lottery list data \\ 
+    22 & female\_list & Female: lottery list data \\ 
+    23 & first\_day\_list & Signed up for lottery list on first day: lottery list data \\ 
+    24 & have\_phone\_list & Gave a phone number on lottery sign up: lottery list data \\ 
+    25 & last\_day\_list & Signed up for lottery list on last day: lottery list data \\ 
+    26 & num\_edcnnp\_pre\_ed & Number of emergent, non-preventable ED visits, pre-randomization \\ 
+    27 & num\_edcnpa\_pre\_ed & Number of emergent, preventable ED visits, pre-randomization \\ 
+    28 & num\_epct\_pre\_ed & Number of primary care treatable ED visits, pre-randomization \\ 
+    29 & num\_ne\_pre\_ed & Number of non-emergent ED visits, pre-randomization(see codebook) \\ 
+    30 & num\_unclas\_pre\_ed & Number of of unclassified ED visits, pre-randomization (see codebook) \\ 
+    31 & num\_visit\_cens\_ed & Number of ED visits in the study period (Censored) \\ 
+    32 & numhh\_list & Number of people in household on lottery list \\ 
+    33 & pobox\_list & Gave a PO Box as an address: lottery list data \\ 
+    34 & ret\_mode\_0m & Method of survey return -- 0m \\ 
+    35 & sample\_0m & Initial mail survey sample (individual was mailed an initial survey) \\ 
+    36 & self\_list & Individual signed him or herself up for the lottery list \\ 
+    37 & surv\_lang\_0m & Survey language -- 0m \\ 
+    38 & week\_list & Week of lottery sign up: lottery list data \\ 
+     \hline
+  \end{tabular}
+  }
+  \caption{Variables used to train the causal forest} 
+  \label{tab:features}
+  \end{table}

@@ -3,4 +3,16 @@
 code/ORhealth.R
 .Rhistory
 *.html
-figs
+
+compilation/*.aux
+compilation/*.bbl
+compilation/*.bcf
+compilation/*.blg
+compilation/*.fdb_latexmk
+compilation/*.fls
+compilation/*.log
+compilation/*.out
+compilation/*.run.xml
+compilation/*.toc
+compilation/main.pdf
+master-thesis.pdf

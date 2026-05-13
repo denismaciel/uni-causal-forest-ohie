@@ -194,10 +194,10 @@ read_csv("data/variable_code_meaning_clean.csv") %>%
 library(grf)
 
 cf <- instrumental_forest(
-  X = X_train,
-  Y = train$num_visit_cens_ed,
-  W = train$medicaid,
-  Z = train$treatment,
+  X = as.matrix(X_train),
+  Y = as.numeric(train$num_visit_cens_ed),
+  W = as.numeric(train$medicaid),
+  Z = as.numeric(train$treatment),
   honesty = TRUE
 )
 
@@ -309,4 +309,3 @@ feat_importance %>%
   filter(row_number() %in% 1:10) %>% 
   xtable::xtable(label = "tab:feature_importance")
 ```
-

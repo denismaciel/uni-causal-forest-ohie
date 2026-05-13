@@ -1,0 +1,46 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}    % Typical maths resource packages
+\usepackage{graphicx}                           % Packages to allow inclusion of graphics
+\usepackage{hyperref}                           % For creating hyperlinks in cross references
+% \usepackage[authoryear]{natbib}                 % literature reference style
+\usepackage[bf]{caption}
+
+% Biblatex
+\usepackage[english]{babel}
+% \usepackage{csquotes}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{../content/refs/references.bib}% Syntax for version >= 1.2
+
+% -------------------------------
+% --- some layout definitions ---
+% -------------------------------
+
+% define topline
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\automark{section}
+\clearpairofpagestyles
+\ohead{\headmark}
+
+% define citation style
+% \bibliographystyle{plainnat}
+
+% define page size, margin size
+\setlength{\headheight}{1.1\baselineskip}
+\voffset=-2cm
+\hoffset=-3cm
+\textheight24cm
+\textwidth15.5cm
+\topmargin1cm
+\oddsidemargin3cm
+\evensidemargin3cm
+
+% define line line spacing = 1.5
+\renewcommand{\baselinestretch}{1.5}
+
+% define second level for `itemizing'
+\renewcommand{\labelitemii}{-}
+
+\input{../content/var/body}

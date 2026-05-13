@@ -40,6 +40,7 @@
               haven
               here
               knitr
+              patchwork
               rmarkdown
               recipes
               scales
@@ -69,6 +70,28 @@
                 set -euo pipefail
                 export PATH="${tex}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
                 make paper
+              ''
+            );
+          };
+
+          analysis = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "run-causal-forest-ohie-analysis" ''
+                set -euo pipefail
+                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
+                make analysis
+              ''
+            );
+          };
+
+          check-analysis = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "check-causal-forest-ohie-analysis" ''
+                set -euo pipefail
+                export PATH="${self.packages.${system}.r}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.gnumake}/bin:$PATH"
+                make check-analysis
               ''
             );
           };

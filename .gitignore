@@ -4,15 +4,15 @@ code/ORhealth.R
 .Rhistory
 *.html
 
-compilation/*.aux
-compilation/*.bbl
-compilation/*.bcf
-compilation/*.blg
-compilation/*.fdb_latexmk
-compilation/*.fls
-compilation/*.log
-compilation/*.out
-compilation/*.run.xml
-compilation/*.toc
-compilation/main.pdf
+paper/*.aux
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.toc
+paper/main.pdf
 master-thesis.pdf

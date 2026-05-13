@@ -1,0 +1,35 @@
+\section{Heterogeneity in Treatment Effects}
+
+Heterogeneous treatment effect is a mouthful, but ultimately a very simple concept. It refers to the fact that different people might react differently to the same treatment. Take the fictional example of a \$1000 transfer to individuals from a specific population. This is our treatment. Imagine there are two groups in our population: drug addicts and non-drug addicts. We want to measure the impact that this transfer has on the health of the individuals. Here we measure health with an index that ranges from 0 to 100. In this fictional example, \$1000 cause the health of drug addicts to decrease because they will use the money to acquire more drugs. For non-drug addicts, the effect on health is positive. 
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Simple Heterogeneity Example}
+    \label{tab:heterogeneity}
+    \begin{tabular}{l|r|r|r}
+         & \textbf{\$1000} & \textbf{\$0} & \textbf{Treatment Effect}\\
+      \hline
+        Non drug addicts & 64 & 62 & 2\\
+        Drug addicts     & 17 & 25 & -8\\
+    \end{tabular}
+  \end{center}
+\end{table}
+
+If the population is comprised of 95\% of non-drug addicts, the estimate of the average causal effect (ATE) of a \$1000 transfer on health would be of 1.5 points in the health index.
+
+\begin{equation}
+    ATE = 2 \times 0.95 + (-8) \times 0.05 = 1.5
+\end{equation}
+
+Across the whole population, the average treatment effect is positive, even though for the drug addict group the treatment has a nefarious effect. A well-meaning policymaker would probably want to identify these two groups and target them differently.
+
+% Heterogeneity & Big data
+
+It's easy to see how heterogeneity can take much more complex forms. We need not stop in differences across two groups, we can think as many groups as there are characteristics identifying the units of observation. In the specfic case, one could think of age, gender, and marital status as also influencing the response of the individuals to treatment.
+
+Researchers haven't been blinded to heterogeneity in causal effects. On the contrary, many methods, very complex and otherwise, have been developed to disentangle different groups with different reactions to treatment (\cite{imbensIdentificationEstimationLocal1994}). Usually, the identification and estimation of treatment effects take the form of a specification plan done before the data collection where the researcher determines which covariates she suspects may be a source of heterogeneity. The pre-specification aims to refrain researchers from cherry-picking covariates after data collection that seems a statistically significant source of heterogeneity. After all, if enough covariates are measured, some combination of them will by chance pass the statistical tests for heterogeneity.
+
+With the rise of big data, however, researchers have been faced with yet a different problem. On the one hand, they want to make use of every piece of information that is relevant for identifying heterogeneous treatment effects. But there is the problem that if one looks long enough, she will find heterogeneity that comes to be due to sampling. The tension between the scientificity of a method and the desire to extract relevant information from the data can be softened with the aid of machine learning.
+
+\newpage
+

@@ -1,0 +1,60 @@
+\section{Causal Forest}
+
+\subsection{Decision Trees 101}
+
+Imagine you are in charge of the lending department of a bank. You receive daily many requests of people wanting to borrow money from your employer. Along with those requests, you have access to a myriad of information on each applicant: age, gender, income statement, marital status and so on. You also have the same data on people who have gotten loans in the past. For the past loans, you also know if they have been paid back or the borrower has defaulted. Your task is to decide which of the new applicants should be granted a loan and you should pick ideally only those who won't default should.
+
+One way of doing this is to apply a decision tree. In its most general form, a decision tree is a set of rules that splits a population into smaller groups. In our example, we want to split our applicants into subgroups and for each one of them, we either grant or reject a loan to the applicants belonging to it. The way you come up with rules can be arbitrary. You could probably use common sense and only grant loans to those with income over a certain threshold. In this case, you would end up with a very shallow tree with two leaves (also called end nodes): one leaf would contain those who make more than your threshold and the other one would contain those who make less. Nothing is limiting the number of nodes in your tree. In fact, you could grow your tree to have as many nodes as there are applicants (as long as the information you have on them is enough to uniquely identify each one of them). For example, you could be more restrictive with loan granting and after the split based on income, you further split the node of high-income participants into younger and older than 25. Only those applicants with high income and above 25 years would be granted a loan.
+
+Although decision trees can accommodate a variety of heuristics when building the tree, machine learning practitioners take a more principled approach when deciding which rules to pick in order to split each node. Specifically, they look at past data and try to find rules that nicely splits the dataset according to a metric.\footnote{ Many metrics can be used to quantify prediction error. In regression, the root mean squared error (RMSE), defined by $\sqrt{\frac{\sum_{i = 1}^n ({y_i - \hat{y}_i})^2  }{n}}$, is normally used. In classification, there are various metrics to be chosen from. The choice of a metric is dependent on the nature of the problem. Accuracy (the ratio between the number of correctly predicted classes and the total number of observations) would be a poor choice in the case the task is to identify individuals with a rare disease.} Here, we would look at data on past loans and try to minimize the number of defaults, while still granting loans to solvent applicants. To make matters simple, let's assume that to grant a loan to a defaulting applicant is as costly as rejecting a loan to a creditworthy applicant (i.e. a false positive is equivalent to a false negative in terms of cost). With this assumption in mind, we can use as our metric the accuracy, the ratio between the number of correctly identified applicants and the total number of applicants.
+
+Finally, we need a loss function. Something that our algorithm will try to minimize as the ultimate criteria when picking splitting rules. For classification tasks, it's usual to pick entropy. In classification with $n$ classes, the entropy $H$ for every node $S$ in a tree is defined as
+
+\begin{equation}
+    H(S) = \sum_{i = 1}^n{-p_i \ln p_i}
+\end{equation}
+
+where $p_i$ is the proportion of class $i$ present in node $S$.
+
+In our two-class example, the entropy in each leaf boils down to $H(S) = - p_{c}  \ln p_{c} - p_{d} \ln p_{d}$. Figure \ref{fig:entropy} illustrates how entropy in a node varies in a two-class scenario with the proportion of one of the classes. Node entropy is the total entropy in the node, while partial entropy shows only the contribution of one of the classes to total entropy. To minimize entropy, our algorithm must create splits with as many applicants of one type as possible. The entropy is minimized when the share of creditworthy applicants is either zero or one. In other words, the entropy at a certain leaf will be zero if we manage to find a rule that leaves this leaf with either only creditworthy applicants or only defaulting applicants.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{entropy.png}
+  \caption{Entropy}
+  \label{fig:entropy}
+\end{figure}
+
+% TODO: cite Data Science from Scratch
+A popular splitting algorithm is what is called greedy search (\cite{grusDataScienceScratch2015}). It goes as follows: starting from the entire sample as you first node\dots\footnote{This simple version of greedy search could also be complemented with stoping rules related to the depth of the tree and the number of observations in each node. An example of the first case would be: stop when a branch of the tree is made by more than 5 rules, stop. For the second case: stop if the node has less than ten observations in it.}
+
+\begin{itemize}
+    \item If the data in the node have all the same label (either creditworthy or defaulting), stop.
+    \item Otherwise, try partitioning the applicants by each of the attributes (age, gender, etc).
+    \item Choose the splitting rule that results in two new nodes with the lowest entropy weighted by the number of applicants in each node. 
+    \item Recur on each newly created node.
+\end{itemize}
+
+Once your tree is grown – that is, you have a set of sequential rules that puts each observation in a node –, you now can use it for prediction. You just apply the set of rules to an unknown applicant. If she ends up in a node with a majority of defaulting, you classify her as a default. If the node, however, is composed mainly of creditworthy applicants, you grant her a loan.
+
+\subsection{Honest Causal Tree}
+
+It turns out that slightly adjusting the decision tree can make it a powerful tool for identifying heterogeneous causal effects. An honest causal tree is a modified version of a decision tree that comes with the search for causal effects baked in (\cite{wagerEstimationInferenceHeterogeneous2018}, \cite{atheyGeneralizedRandomForests2016}).
+
+\subsubsection{Why causal?}
+
+We call it a causal tree because the tree tries not to minimize the entropy, but rather to maximize the causal effect in each node. As seen in the previous section, a typical decision tree splits the data by finding which pair of variable and value (for example, the variable could be age and the value 25) can most reduce entropy in the nodes if we were to split the node at it. Since we are interested here in treatment effects, we need to adjust this reasoning a little. First, we cannot observe the same individual under the two states (treatment and control). The best we can do is to identify individuals that are similar and compute the average treatment effect among them. In that vein, we might assume that the treatment effect for all individuals belonging to the same leaf of a tree is the same and can be approximated by the difference between the average of those in treatment and the average of those in control \textit{within} that leaf. Thus, while building the tree, we pick the splits (combinations of variable and value) in such a way that the average treatment effect in the resulting nodes is maximized. In this sense are those trees causal: they have the search for causal effects baked in at their very core.
+
+\subsubsection{Why honest?}
+
+There is another peculiarity of the algorithm used to build causal trees worth mentioning and it's also the reason why they are called honest. The data used to 1) construct the set of rules that specifies the nodes and to 2) estimate the treatment effect of each node are different. In fact, the first step of the causal tree algorithm is to split the training data into two: a \textit{splitting} sample and an \textit{estimation} sample. The tree is then grown on the splitting sample only without ever having access to the estimation sample. Once the tree is fully grown, it's now time to estimate the treatment effect for every leaf in the tree. For that, the estimation sample comes into play and all observations in it are passed through the tree ending up in their respective leaf. Finally, the predicted treatment effect of each leaf of the tree is set to be the difference between the average of individuals in treatment and the average of individuals in control across all the observations (remember, coming from the estimation sample only) that ended up in that leaf.
+
+\subsubsection{From trees to the forest}
+
+As mentioned before, decision trees are very flexible and can accommodate an arbitrarily large amount of rules. Remember: decision trees can be as deep as having one node for each observation in the training set. You wouldn't expect such a tree to generalize to new data. % TODO: cite Business Data Science
+As a nonparametric method, it will likely lead to overfitting (as in the case of one node per observation) unless it is regularized. For decision trees, regularization usually takes the form of bagging (\cite{breimanHeuristicsInstabilityStabilization1996}): multiple subsamples from the data are created, the model being regularized is trained on them, and the resulting multiple models have their predictions averaged out into one single model.
+
+A random forest is an example of bagging methods. It is a collection of multiple decision trees that together deliver a single prediction. Each tree of a random forest is trained in a slightly different version of the data. Trees are constructed on random subsamples of both observations and features. The number of observations and the number of features that go in each subsample is the model's hyperparameters, i.e. they must be chosen by the researcher before the random forest is trained. After the random forest is trained and it's supposed to deliver predictions on new data, each tree of the random forest predicts on the new observations and the average of those predictions is the general prediction of the random forest.
+
+This procedure has the benefit of preventing overfitting, a technical term that means your model won't generalize to new data because it is fitting noise (randomness) in the training data. Most importantly, however, for causal forests (a random forest built out of causal trees), \cite{atheyGeneralizedRandomForests2016} have derived that the estimated treatment effects are asymptotically normal. This means that when your sample size gets larger, the distribution of the treatment effect estimates for every end node of our tree approximates the normal distribution. It's then possible to build confidence intervals around those estimates and assess the inherent uncertainty stemming from them.
+
+\newpage

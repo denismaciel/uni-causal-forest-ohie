@@ -1,23 +1,17 @@
 PAPER_PDF := artifacts/causal-forest-ohie-paper.pdf
 
-.PHONY: compile-pdf paper clean copy-figs compile-notes count-words
+.PHONY: compile-pdf paper clean count-words
 
 compile-pdf: paper
 
-paper: clean copy-figs
+paper: clean
 	mkdir -p artifacts
-	cd compilation && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-	cp compilation/main.pdf $(PAPER_PDF)
+	cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+	cp paper/main.pdf $(PAPER_PDF)
 
 clean:
-	scripts/clean-tex.sh
-
-copy-figs:
-	mkdir -p content/figs
-	cp figs/* content/figs/
-
-compile-notes:
-	scripts/notes-to-pdf.
+	latexmk -C paper/main.tex
+	rm -f paper/main.run.xml
 
 count-words:
 	pdftotext $(PAPER_PDF) - | wc -w

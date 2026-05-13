@@ -1,0 +1,66 @@
+\section{Causality \& Experiments}
+
+Does Medicaid\footnote{Although frequently mentioned together in the media, Medicaid and Medicare are two separate programs. Medicare is a federal program that provides health coverage for adults ages 65+ and disabled people irrespective of their incomes. Medicare is both sate and federal and provides health coverage for low-income adults.} coverage increase or decrease the number of visits of a person to the emergency department? This question comes up whenever an expansion of Medicaid is considered. This is the case mostly because of the fiscal impact that an increase or decrease of emergency department visits resulting from more people having access to Medicaid could have. There are two lines of reasoning about what could be the effect of a Medicaid expansion on the state of public finance. The first one argues that by granting insurance to more people, one is to expect an overall higher usage of health care and thus an increase in public spending. A second line of reasoning defends that a Medicaid expansion could decrease insurance spending. Medicaid would allow participants to have greater access to primary care and by doing so it would be able to prevent acute conditions that result in an emergency department visit. Emergency department visits, it turns out, are much more costly than primary care. According to this line of reasoning, access to Medicaid and the ensuing increase in primary care (which is cheaper) would reduce the usage of emergency departments (which is considerably more expensive). This way, Medicaid would end up having a positive effect on public accounts.
+
+\subsection{The Oregon Health Insurance Experiment}
+
+In 2008, the state of Oregon opened a waiting list for the expansion of Medicaid. The program had been closed for new enrollments for over four years. As detailed in \cite{finkelsteinOregonHealthInsurance2012}, the expansion targeted low-income adults that would otherwise not be eligible for Medicaid. More specifically, those eligible for the program were adults ages 19-64 who were Oregon residents, either U.S. citizens or legal immigrants, have not had health insurance for the past six months, had income below the federal poverty level and had assets below \$2,000. There were 10,000 available slots.
+
+Oregon has correctly anticipated the high demand for the program and decided to run a lottery to pick the winners. This is the perfect scenario for identifying and disentangling causal effects of Medicaid. As explained below, the randomization in treatment assignment coming from the lottery draws enable us to isolate the effect of treatment from other otherwise correlated covariates.
+
+Registration for the lottery was available for one month from January 28 to February 29, 2008. The state went on to publicize the lottery and the barriers to sign-up were relatively low: anyone could sign-up by telephone, by fax, by mail, in person or online. At the end of the five-week window, 89,824 individuals were registered in the lottery list. During the following months (March through September 2008), the state conducted eight lottery drawings. In each one of them, roughly the same number of participants were selected. As soon as an individual was selected, all members of her household became eligible for entering Medicaid. 35,169 individuals from 29,664 different households were selected by lottery. About 30\% of the selected individuals ended up successfully enrolling in the program. Only 60\% of the selected individuals sent an application and from the applications sent, about half of them were deemed ineligible.
+
+The data used in our paper was made available by \cite{finkelsteinOregonHealthInsurance2012} and can be downloaded at \url{https://www.nber.org/oregon/4.data.html}.
+
+\subsection{Why experiments work?}
+
+In an ideal world (with observable parallel universes), the causal effect of Medicaid coverage on emergency department visits could be estimated for every single individual by subtracting the number of visits under Medicaid from the number of visits without Medicaid that he or she had. For obvious reasons, a person can either be under treatment or control. We can never observe both states of the world simultaneously. The impossibility to observe the same person under treatment and control has come to be known as the \textit{fundamental problem of causal inference}.
+
+Instead of individual treatment effects, an alternative is to try to estimate the \textit{average} treatment effect of a population (\cite{morganCounterfactualsCausalInference2015}). To make what follows understandable, it's important to first define some basic notation:
+
+\begin{itemize}
+  \item $Y_0$: dependent variable $Y$ when under control
+  \item $Y_1$: dependent variable $Y$ when under treatment
+  \item $T \in \{0,1\}$: dummy varible indicating whether observation is under treatment or control
+  \item $\pi$: share of population under treatment
+\end{itemize}
+
+With that in mind, the average treatment effect can be defined as:
+
+\begin{equation}
+  ATE = \mathbb{E}[Y_1 - Y_0] = \mathbb{E}[Y_1] - \mathbb{E}[Y_0]
+\end{equation}
+
+By taking into account the actual treatment taken by each share of the population, we can rewrite the equation above as:
+
+\begin{equation}
+  \label{eq:ate_decomposed}
+    ATE = \{\pi \mathbb{E}[Y_1 | T = 1] + (1-\pi) \mathbb{E}[Y_1 | T = 0]\} \\
+    - \{\pi \mathbb{E}[Y_0 | T = 1] + (1-\pi) \mathbb{E}[Y_0 | T = 0]\}
+\end{equation}
+
+Formulating the problem in terms of average treatment effects does not by itself free us from the fact that some states are unobservable. In equation \ref{eq:ate_decomposed}, the expected value of $Y_1$ for the share of population under control  ($\mathbb{E}[Y_1 | T = 0]$)  and the expected value of $Y_0$ for the share of population under treatment (($\mathbb{E}[Y_0 | T = 1]$)) cannot be observed. In general, groups under treatment and control are different and have, for this reason, different expected values of the dependent variable. For example, in the absence of an experiment setting, a group of people taking a new drug with unknown side-effects (treatment) is in all likelihood very different from those not taking it (control). Those taking the drug could be much sicker than those not taking it and, therefore, willing to take higher risks to achieve a potential cure. In this scenario, comparing the average health (the dependent variable) of treatment and control wouldn't make sense, since those in treatment have already worse health and, even if the drug has a beneficial effect, treatment's average health would still be lower than control's.
+
+This, however, wouldn't be a problem if we knew exactly which variables are responsible for the differences in treatment and control. We could simply control for them (i.e., include them in the regression as dependent variables) and our estimates of treatment effects would be accurate. Yet not only can we not be sure about all variables that drive differences in treatment and control groups, but also some of these variables are not observable in the first place. Going back to Medicaid and emergency department case, it's plausible that the psychological traits of individuals do play a role in the number of visits to the emergency department they have. A person can have many visits to the emergency department either because she is truly sick or because she has a more cautious personality. Although her health condition is observable (we can measure her blood pressure and glucose levels, etc), the psychological condition of someone being overly cautious and visiting the emergency department at the first suspicion of illness is not. Unobservable variables cannot, per definition, be controlled for making it impossible in an observational study to disentangle its effects from the variable we are trying to analyze. In such situations trying to estimate the effect of Medicaid on emergency department visits will probably be affected by omitted variable bias. Specifically, since we expect overly cautious people to be already in Medicaid, we would estimate that the effect of Medicaid on increasing emergency department visits is higher than what it is in fact.
+
+Random assignment of treatment frees us from the two problems mentioned above. By randomly selecting participants to receive the treatment, we expect treatment and control groups to be equal in every single aspect except for the treatment variable. Thus, any difference arising between the two groups must be caused by the variable whose causal effect we are trying to estimate. On the one hand, we can estimate average treatment effects directly by computing $ATE = \mathbb{E}[Y_1 | T = 1] - \mathbb{E}[Y_0 | T = 0]$, since $\mathbb{E}[Y_1 | T = 1] = \mathbb{E}[Y_1 | T = 0]$ and $\mathbb{E}[Y_0 | T = 1] = \mathbb{E}[Y_0 | T = 0]$. On the other hand, random assignment breaks the correlations between unobservable variables and our treatment, because the latter was randomly assigned.
+
+The subjects of the Oregon Health Insurance Experiment (OHIE) were randomly assigned to the treatment (Medicaid). This is a perfect setting for assessing the causal effects that Medicaid might have in other variables. The first step in such an analysis is to make sure that the experiment was able to balace control and treatment groups. For that, we compare both groups with respect to the variables we can observe.  In OHIE, we compared mean year of birth, percentage of female, percentage that provided a phone number, percentage that signed up for lottery list on the first day across treatment and control. Table \ref{tab:treatment_control_comparison} shows that the difference between treatment and control across all metrics are very small and none is significantly different from zero. This is indicative that the lottery has managed to create comparable groups and that any significant variation in emergency department visits can be attributed to access to Medicaid or lack thereof.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrrr}
+  \hline
+    & Metric & Control Average & Treatment Average &  Difference \\ 
+  \hline
+   & year\_of\_birth          & 1968.34 & 1968.50 &  -0.16 (0.21)\\ 
+   & pp\_female (\%)          & 55    & 54        &  1.1 (0.7) \\ 
+   & gave\_phone\_number (\%) & 87    & 88        &  -1.0 (0.8) \\ 
+   & first\_day\_list (\%)    & 9     & 10        &  1.0  (0.7)\\ 
+   \hline
+\end{tabular}
+   \caption{\label{tab:treatment_control_comparison} Comparison between groups under treatment and control}
+\end{table}
+
+\newpage
+

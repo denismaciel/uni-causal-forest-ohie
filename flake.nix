@@ -27,6 +27,7 @@
               latexmk
               biber
               biblatex
+              csquotes
               collection-latexrecommended
               collection-fontsrecommended
               koma-script;

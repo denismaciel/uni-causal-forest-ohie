@@ -1,3 +1,8 @@
+> **Moved to academia:** This project is now maintained at
+> [papers/causal-forest-ohie](https://github.com/denismaciel/academia/tree/main/papers/causal-forest-ohie).
+> Its code, manuscripts, data, and Git history were preserved.
+> This repository is retained as a historical archive.
+
 # Application of Causal Forest to the Oregon Health Insurance Experiment Data
 
 This repository contains the OHIE causal forest replication code and the paper
